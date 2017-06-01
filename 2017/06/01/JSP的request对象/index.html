@@ -15,17 +15,16 @@
 
 
 
-<meta name="description" content="摘要">
-<meta name="keywords" content="jsp">
+<meta name="description" content="requestServletRequest与HttpServletRequest的关系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSP中的内置对象">
-<meta property="og:url" content="http://yoursite.com/2017/06/01/jsp中的内置对象/index.html">
+<meta property="og:title" content="zxc&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/JSP的request对象/index.html">
 <meta property="og:site_name" content="zxc&#39;s blog">
-<meta property="og:description" content="摘要">
-<meta property="og:updated_time" content="2017-06-01T06:39:09.856Z">
+<meta property="og:description" content="requestServletRequest与HttpServletRequest的关系">
+<meta property="og:updated_time" content="2017-06-01T08:23:53.246Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSP中的内置对象">
-<meta name="twitter:description" content="摘要">
+<meta name="twitter:title" content="zxc&#39;s blog">
+<meta name="twitter:description" content="requestServletRequest与HttpServletRequest的关系">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>JSP中的内置对象 | zxc&#39;s blog</title>
+<title>zxc&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -261,11 +260,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-jsp中的内置对象" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JSP的request对象" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/01/jsp中的内置对象/" class="article-date">
-      <time datetime="2017-06-01T06:39:15.000Z" itemprop="datePublished">2017-06-01</time>
+      <a href="/2017/06/01/JSP的request对象/" class="article-date">
+      <time datetime="2017-06-01T08:22:01.989Z" itemprop="datePublished">2017-06-01</time>
 </a>
 
 
@@ -276,50 +275,10 @@
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JSP中的内置对象
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/日志/">日志</a><a class="article-category-link" href="/categories/日志/二级目录/">二级目录</a>
-    </div>
-
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsp/">jsp</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>摘要<br><a id="more"></a><br>正文：</p>
-<h1 id="JSP中的内置对象"><a href="#JSP中的内置对象" class="headerlink" title="JSP中的内置对象"></a>JSP中的内置对象</h1><h2 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h2><p>不需要构造方法，可以直接调用</p>
-<h2 id="属性范围"><a href="#属性范围" class="headerlink" title="属性范围"></a>属性范围</h2><ol>
-<li>当前页</li>
-<li>一次服务器请求范围</li>
-<li>一次会话</li>
-<li><p>上下文中</p>
-<h3 id="属性操作方法"><a href="#属性操作方法" class="headerlink" title="属性操作方法"></a>属性操作方法</h3><p> public void setAttnbute(String name,Objectvalue)<br> public Object getAttnbute(String name)<br> public void removeAttnbute(String name)</p>
-<h3 id="page-属性范围（pageContext-）"><a href="#page-属性范围（pageContext-）" class="headerlink" title="page 属性范围（pageContext ）"></a>page 属性范围（pageContext ）</h3><p>pageContext和page都是jsp中的隐含对象</p>
-</li>
-<li><p>pageContext代表jsp页面的上下文关系，能够调用、存取其他隐含对象；</p>
-</li>
-<li>page代表处理当前请求的时候，这个页面的实现类的实例。</li>
-</ol>
-<h3 id="request属性范围"><a href="#request属性范围" class="headerlink" title="request属性范围"></a>request属性范围</h3><h3 id="session属性范围"><a href="#session属性范围" class="headerlink" title="session属性范围"></a>session属性范围</h3><h3 id="application属性范围"><a href="#application属性范围" class="headerlink" title="application属性范围"></a>application属性范围</h3>
+        <h1 id="request"><a href="#request" class="headerlink" title="request"></a>request</h1><h2 id="ServletRequest与HttpServletRequest的关系"><a href="#ServletRequest与HttpServletRequest的关系" class="headerlink" title="ServletRequest与HttpServletRequest的关系"></a>ServletRequest与HttpServletRequest的关系</h2>
       
     </div>
     
@@ -327,13 +286,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/01/jsp中的内置对象/">JSP中的内置对象</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/01/JSP的request对象/"></a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxc</a></p>
-        <p><span>发布时间:</span>2017-06-01, 14:39:15</p>
-        <p><span>最后更新:</span>2017-06-01, 14:39:09</p>
+        <p><span>发布时间:</span>2017-06-01, 16:22:01</p>
+        <p><span>最后更新:</span>2017-06-01, 16:23:53</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/01/jsp中的内置对象/" title="JSP中的内置对象">http://yoursite.com/2017/06/01/jsp中的内置对象/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/01/jsp中的内置对象/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/01/JSP的request对象/" title="">http://yoursite.com/2017/06/01/JSP的request对象/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/01/JSP的request对象/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +304,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/01/JSP的request对象/">
-                    
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/01/maven/">
-                    maven用途
+                <a href="/2017/06/01/jsp中的内置对象/">
+                    JSP中的内置对象
                 </a>
             </div>
         
@@ -366,7 +319,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JSP中的内置对象"><span class="toc-number">1.</span> <span class="toc-text">JSP中的内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内置对象"><span class="toc-number">1.1.</span> <span class="toc-text">内置对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性范围"><span class="toc-number">1.2.</span> <span class="toc-text">属性范围</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性操作方法"><span class="toc-number">1.2.1.</span> <span class="toc-text">属性操作方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#page-属性范围（pageContext-）"><span class="toc-number">1.2.2.</span> <span class="toc-text">page 属性范围（pageContext ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#request属性范围"><span class="toc-number">1.2.3.</span> <span class="toc-text">request属性范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session属性范围"><span class="toc-number">1.2.4.</span> <span class="toc-text">session属性范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application属性范围"><span class="toc-number">1.2.5.</span> <span class="toc-text">application属性范围</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#request"><span class="toc-number">1.</span> <span class="toc-text">request</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ServletRequest与HttpServletRequest的关系"><span class="toc-number">1.1.</span> <span class="toc-text">ServletRequest与HttpServletRequest的关系</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -402,7 +355,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"JSP中的内置对象　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,15 +375,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/01/JSP的request对象/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/01/maven/" title="下一篇: maven用途">
+            <a href="/2017/06/01/jsp中的内置对象/" title="下一篇: JSP中的内置对象">
                 <i class="fa fa-angle-right"></i>
             </a>
         
