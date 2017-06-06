@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="摘要">
-<meta name="keywords" content="jsp">
+<meta name="description" content="摘要使用github+hexo搭建个人博客">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSP中的内置对象">
-<meta property="og:url" content="http://yoursite.com/2017/06/01/jsp中的内置对象/index.html">
+<meta property="og:title" content="hexo+github搭建博客">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/搭建博客（hexo+github）/index.html">
 <meta property="og:site_name" content="zxc&#39;s blog">
-<meta property="og:description" content="摘要">
-<meta property="og:updated_time" content="2017-06-01T06:39:09.856Z">
+<meta property="og:description" content="摘要使用github+hexo搭建个人博客">
+<meta property="og:updated_time" content="2017-06-06T13:32:06.017Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSP中的内置对象">
-<meta name="twitter:description" content="摘要">
+<meta name="twitter:title" content="hexo+github搭建博客">
+<meta name="twitter:description" content="摘要使用github+hexo搭建个人博客">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>JSP中的内置对象 | zxc&#39;s blog</title>
+<title>hexo+github搭建博客 | zxc&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -261,11 +261,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-jsp中的内置对象" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-搭建博客（hexo+github）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/01/jsp中的内置对象/" class="article-date">
-      <time datetime="2017-06-01T06:39:15.000Z" itemprop="datePublished">2017-06-01</time>
+      <a href="/2017/06/06/搭建博客（hexo+github）/" class="article-date">
+      <time datetime="2017-06-06T13:28:37.000Z" itemprop="datePublished">2017-06-06</time>
 </a>
 
 
@@ -280,7 +280,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JSP中的内置对象
+      hexo+github搭建博客
     </h1>
   
 
@@ -295,7 +295,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsp/">jsp</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,21 +305,47 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>摘要<br><a id="more"></a><br>正文：</p>
-<h1 id="JSP中的内置对象"><a href="#JSP中的内置对象" class="headerlink" title="JSP中的内置对象"></a>JSP中的内置对象</h1><h2 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h2><p>不需要构造方法，可以直接调用</p>
-<h2 id="属性范围"><a href="#属性范围" class="headerlink" title="属性范围"></a>属性范围</h2><ol>
-<li>当前页</li>
-<li>一次服务器请求范围</li>
-<li>一次会话</li>
-<li><p>上下文中</p>
-<h3 id="属性操作方法"><a href="#属性操作方法" class="headerlink" title="属性操作方法"></a>属性操作方法</h3><p> public void setAttnbute(String name,Objectvalue)<br> public Object getAttnbute(String name)<br> public void removeAttnbute(String name)</p>
-<h3 id="page-属性范围（pageContext-）"><a href="#page-属性范围（pageContext-）" class="headerlink" title="page 属性范围（pageContext ）"></a>page 属性范围（pageContext ）</h3><p>pageContext和page都是jsp中的隐含对象</p>
+        <p>摘要<br>使用github+hexo搭建个人博客<br><a id="more"></a><br>正文：</p>
+<h1 id="终于完成搭建博客，现在分享自己的历程"><a href="#终于完成搭建博客，现在分享自己的历程" class="headerlink" title="终于完成搭建博客，现在分享自己的历程"></a><strong>终于完成搭建博客，现在分享自己的历程</strong></h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>注册github，建立名为 username.github.io仓库</li>
+<li><p>下载安装node.js 官网：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a> <em>起初下载很慢，或者资源丢失，搬了梯子后正常。此后的所有下载都在有梯子的条件下</em></p>
 </li>
-<li><p>pageContext代表jsp页面的上下文关系，能够调用、存取其他隐含对象；</p>
+<li><p>下载安装git 官网：<a href="https://git-scm.com/download/win" target="_blank" rel="external">https://git-scm.com/download/win</a></p>
 </li>
-<li>page代表处理当前请求的时候，这个页面的实现类的实例。</li>
+<li><p>安装hexo：桌面右键 git bash here：输入命令</p>
+<p><code>npm install -g hexo-cli</code></p>
+<h2 id="开始博客"><a href="#开始博客" class="headerlink" title="开始博客"></a>开始博客</h2><p><strong>hexo命令介绍</strong></p>
+</li>
 </ol>
-<h3 id="request属性范围"><a href="#request属性范围" class="headerlink" title="request属性范围"></a>request属性范围</h3><h3 id="session属性范围"><a href="#session属性范围" class="headerlink" title="session属性范围"></a>session属性范围</h3><h3 id="application属性范围"><a href="#application属性范围" class="headerlink" title="application属性范围"></a>application属性范围</h3>
+<ul>
+<li>hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</li>
+<li>hexo server (hexo s) 启动本地web服务，用于博客的预览</li>
+<li>hexo deploy (hexo d) 部署博客到远端服务器</li>
+<li>hexo new “postName” #新建文章</li>
+<li>hexo new page “pageName” #新建页面</li>
+</ul>
+<ol>
+<li>本地建立文件夹，我的选择  E:\my_blog</li>
+<li>初始化  选中my_blog文件夹，右键git bash here，进入。输入<br><code>hexo init</code><br>系统会进入下载状态，下载hexo 提供的一套初始界面，完成后可以手动查看原来的my_blog文件夹里多了一堆相关的文件</li>
+<li><code>npm install</code>自动安装相关插件</li>
+<li>输入<code>hexo g</code>生成文件 ， 输入<code>hexo s</code>启动本地预览，打开浏览器输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> <em> 预览博客，键入ctrl+c关闭</em>本地web服务</li>
+</ol>
+<h2 id="部署到github仓库"><a href="#部署到github仓库" class="headerlink" title="部署到github仓库"></a>部署到github仓库</h2><ol>
+<li>配置git  检查ssh密匙，第一次使用Git应该是本地不存在ssh密匙的，需要新建</li>
+<li>生成ssh密匙： <code>ssh-keygen -t rsa -C &quot;注册github时的邮箱&quot;</code>会提示键入文件位置，和输入密码，确认密码。不需要，三次回车即可</li>
+<li>获取本地Git的key：<code>cat ~/.ssh/id_rsa.pub</code> </li>
+<li>复制返回的key，添加到github中。new ssh key 成功，一般github会向你的github认证邮箱中发一条邮件</li>
+<li>配置本地的my_blog文件夹中的_config.yml内容，等于将github地址添加为本地hexo的部署目标<br>在_config.yml文档末尾添加<pre><code>deploy:
+</code></pre> type: git<br> repo: ssh://git@github.com/username/username.github.io<br> branch: master</li>
+</ol>
+<ol>
+<li><p><code>npm install hexo-deployer-git –save</code>  </p>
+</li>
+<li><p>右键my_blog git bash here,  <code>hexo g</code>生成静待界面 <code>hexo s</code>本地服务器打开进行测试 <code>hexo d</code>部署到git</p>
+</li>
+<li>跳出github 登录界面：输入账户密码即可<h3 id="待添加内容"><a href="#待添加内容" class="headerlink" title="待添加内容"></a>待添加内容</h3><h4 id="主题的管理"><a href="#主题的管理" class="headerlink" title="主题的管理"></a>主题的管理</h4><h4 id="markdown的简单操作"><a href="#markdown的简单操作" class="headerlink" title="markdown的简单操作"></a>markdown的简单操作</h4><h4 id="新增博文的做法"><a href="#新增博文的做法" class="headerlink" title="新增博文的做法"></a>新增博文的做法</h4><h4 id="在博文中增加图片"><a href="#在博文中增加图片" class="headerlink" title="在博文中增加图片"></a>在博文中增加图片</h4></li>
+</ol>
+
       
     </div>
     
@@ -327,13 +353,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/01/jsp中的内置对象/">JSP中的内置对象</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/06/搭建博客（hexo+github）/">hexo+github搭建博客</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxc</a></p>
-        <p><span>发布时间:</span>2017-06-01, 14:39:15</p>
-        <p><span>最后更新:</span>2017-06-01, 14:39:09</p>
+        <p><span>发布时间:</span>2017-06-06, 21:28:37</p>
+        <p><span>最后更新:</span>2017-06-06, 21:32:06</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/01/jsp中的内置对象/" title="JSP中的内置对象">http://yoursite.com/2017/06/01/jsp中的内置对象/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/01/jsp中的内置对象/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/06/搭建博客（hexo+github）/" title="hexo+github搭建博客">http://yoursite.com/2017/06/06/搭建博客（hexo+github）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/06/搭建博客（hexo+github）/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +371,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/01/JSP的request对象/">
-                    JSP中的request
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/01/maven/">
-                    maven用途
+                <a href="/2017/06/05/cookie&session/">
+                    cookie&amp;session
                 </a>
             </div>
         
@@ -366,7 +386,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JSP中的内置对象"><span class="toc-number">1.</span> <span class="toc-text">JSP中的内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内置对象"><span class="toc-number">1.1.</span> <span class="toc-text">内置对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性范围"><span class="toc-number">1.2.</span> <span class="toc-text">属性范围</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性操作方法"><span class="toc-number">1.2.1.</span> <span class="toc-text">属性操作方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#page-属性范围（pageContext-）"><span class="toc-number">1.2.2.</span> <span class="toc-text">page 属性范围（pageContext ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#request属性范围"><span class="toc-number">1.2.3.</span> <span class="toc-text">request属性范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session属性范围"><span class="toc-number">1.2.4.</span> <span class="toc-text">session属性范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application属性范围"><span class="toc-number">1.2.5.</span> <span class="toc-text">application属性范围</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#终于完成搭建博客，现在分享自己的历程"><span class="toc-number">1.</span> <span class="toc-text">终于完成搭建博客，现在分享自己的历程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">1.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始博客"><span class="toc-number">1.2.</span> <span class="toc-text">开始博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到github仓库"><span class="toc-number">1.3.</span> <span class="toc-text">部署到github仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#待添加内容"><span class="toc-number">1.3.1.</span> <span class="toc-text">待添加内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主题的管理"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">主题的管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#markdown的简单操作"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">markdown的简单操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新增博文的做法"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">新增博文的做法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在博文中增加图片"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">在博文中增加图片</span></a></li></ol></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -402,7 +422,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"JSP中的内置对象　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"hexo+github搭建博客　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,15 +442,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/01/JSP的request对象/" title="上一篇: JSP中的request">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/01/maven/" title="下一篇: maven用途">
+            <a href="/2017/06/05/cookie&session/" title="下一篇: cookie&amp;session">
                 <i class="fa fa-angle-right"></i>
             </a>
         
