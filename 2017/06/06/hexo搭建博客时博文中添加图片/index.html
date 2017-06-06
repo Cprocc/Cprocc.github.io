@@ -15,19 +15,17 @@
 
 
 
-<meta name="description" content="摘要使用github+hexo搭建个人博客">
+<meta name="description" content="摘要使用hexo时为博文加入图片">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+github搭建博客">
-<meta property="og:url" content="http://yoursite.com/2017/06/06/搭建博客（hexo+github）/index.html">
+<meta property="og:title" content="hexo写博文时插入本地图片">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/hexo搭建博客时博文中添加图片/index.html">
 <meta property="og:site_name" content="zxc&#39;s blog">
-<meta property="og:description" content="摘要使用github+hexo搭建个人博客">
-<meta property="og:image" content="http://yoursite.com/2017/06/06/搭建博客（hexo+github）/im_github_hexo/hexo安装成功.png">
-<meta property="og:updated_time" content="2017-06-06T13:40:40.925Z">
+<meta property="og:description" content="摘要使用hexo时为博文加入图片">
+<meta property="og:updated_time" content="2017-06-06T14:38:04.551Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo+github搭建博客">
-<meta name="twitter:description" content="摘要使用github+hexo搭建个人博客">
-<meta name="twitter:image" content="http://yoursite.com/2017/06/06/搭建博客（hexo+github）/im_github_hexo/hexo安装成功.png">
+<meta name="twitter:title" content="hexo写博文时插入本地图片">
+<meta name="twitter:description" content="摘要使用hexo时为博文加入图片">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>hexo+github搭建博客 | zxc&#39;s blog</title>
+<title>hexo写博文时插入本地图片 | zxc&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -263,11 +261,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-搭建博客（hexo+github）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hexo搭建博客时博文中添加图片" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/06/搭建博客（hexo+github）/" class="article-date">
-      <time datetime="2017-06-06T13:28:37.000Z" itemprop="datePublished">2017-06-06</time>
+      <a href="/2017/06/06/hexo搭建博客时博文中添加图片/" class="article-date">
+      <time datetime="2017-06-06T14:25:21.000Z" itemprop="datePublished">2017-06-06</time>
 </a>
 
 
@@ -282,7 +280,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo+github搭建博客
+      hexo写博文时插入本地图片
     </h1>
   
 
@@ -307,46 +305,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>摘要<br>使用github+hexo搭建个人博客<br><a id="more"></a><br>正文：</p>
-<h1 id="终于完成搭建博客，现在分享自己的历程"><a href="#终于完成搭建博客，现在分享自己的历程" class="headerlink" title="终于完成搭建博客，现在分享自己的历程"></a><strong>终于完成搭建博客，现在分享自己的历程</strong></h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
-<li>注册github，建立名为 username.github.io仓库</li>
-<li><p>下载安装node.js 官网：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a> <em>起初下载很慢，或者资源丢失，搬了梯子后正常。此后的所有下载都在有梯子的条件下</em></p>
-</li>
-<li><p>下载安装git 官网：<a href="https://git-scm.com/download/win" target="_blank" rel="external">https://git-scm.com/download/win</a></p>
-</li>
-<li><p>安装hexo：桌面右键 git bash here：输入命令</p>
-<p><code>npm install -g hexo-cli</code><br>5.安装成功判断如图<br><img src="im_github_hexo\hexo安装成功.png" alt=""> </p>
-<h2 id="开始博客"><a href="#开始博客" class="headerlink" title="开始博客"></a>开始博客</h2><p><strong>hexo命令介绍</strong></p>
-</li>
+        <p>摘要<br>使用hexo时为博文加入图片<br><a id="more"></a><br><strong>在github+hexo搭建好的博客下写博文时，发现.md文档编写时没有办法直接加入本地图片，加入文件的在本地的相对url，再部署到github上时，图片加载不出来。因为本地hexo博客部署到github上时文件的结构已经发生了变化</strong></p>
+<h1 id="我认为可能可行的解决办法"><a href="#我认为可能可行的解决办法" class="headerlink" title="我认为可能可行的解决办法"></a>我认为可能可行的解决办法</h1><h2 id="1-将图片文件夹传到云服务器上，或者在github-io文件下建立一个文件夹"><a href="#1-将图片文件夹传到云服务器上，或者在github-io文件下建立一个文件夹" class="headerlink" title="1.将图片文件夹传到云服务器上，或者在github.io文件下建立一个文件夹"></a>1.将图片文件夹传到云服务器上，或者在github.io文件下建立一个文件夹</h2><p>未进行实际操作</p>
+<h2 id="2-本地引用，利用CodeFalling-hexo-asset-image插件"><a href="#2-本地引用，利用CodeFalling-hexo-asset-image插件" class="headerlink" title="2.本地引用，利用CodeFalling/hexo-asset-image插件"></a>2.本地引用，利用CodeFalling/hexo-asset-image插件</h2><ol>
+<li>将本地blog文件夹下中的_config.yml中的post_asset_folder属性改为true</li>
+<li>在hexo下输入npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">https://github.com/CodeFalling/hexo-asset-image</a> –save，安装插件</li>
+<li>安装完毕之后用hexo 新建博文的时候在本地_posts页面中生成.md文件的同时会生成一个同名的文件夹用来放置图片。经测试这个文件夹也可以手动生成</li>
+<li>在编辑.md文档是按照要求填写图片url路径即可<br>例如<br><code>![](blog_hexo+github\Git_success.jpg)</code><br><strong>注意</strong></li>
 </ol>
 <ul>
-<li>hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</li>
-<li>hexo server (hexo s) 启动本地web服务，用于博客的预览</li>
-<li>hexo deploy (hexo d) 部署博客到远端服务器</li>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page “pageName” #新建页面</li>
+<li>路径中不要出现中文，会出现问题，也就意味着文件名和图片名都不要出现中文</li>
 </ul>
-<ol>
-<li>本地建立文件夹，我的选择  E:\my_blog</li>
-<li>初始化  选中my_blog文件夹，右键git bash here，进入。输入<br><code>hexo init</code><br>系统会进入下载状态，下载hexo 提供的一套初始界面，完成后可以手动查看原来的my_blog文件夹里多了一堆相关的文件</li>
-<li><code>npm install</code>自动安装相关插件</li>
-<li>输入<code>hexo g</code>生成文件 ， 输入<code>hexo s</code>启动本地预览，打开浏览器输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> <em> 预览博客，键入ctrl+c关闭</em>本地web服务</li>
-</ol>
-<h2 id="部署到github仓库"><a href="#部署到github仓库" class="headerlink" title="部署到github仓库"></a>部署到github仓库</h2><ol>
-<li>配置git  检查ssh密匙，第一次使用Git应该是本地不存在ssh密匙的，需要新建</li>
-<li>生成ssh密匙： <code>ssh-keygen -t rsa -C &quot;注册github时的邮箱&quot;</code>会提示键入文件位置，和输入密码，确认密码。不需要，三次回车即可</li>
-<li>获取本地Git的key：<code>cat ~/.ssh/id_rsa.pub</code> </li>
-<li>复制返回的key，添加到github中。new ssh key 成功，一般github会向你的github认证邮箱中发一条邮件</li>
-<li>配置本地的my_blog文件夹中的_config.yml内容，等于将github地址添加为本地hexo的部署目标<br>在_config.yml文档末尾添加<pre><code>deploy:
-</code></pre> type: git<br> repo: ssh://git@github.com/username/username.github.io<br> branch: master</li>
-</ol>
-<ol>
-<li><p><code>npm install hexo-deployer-git –save</code>  </p>
-</li>
-<li><p>右键my_blog git bash here,  <code>hexo g</code>生成静待界面 <code>hexo s</code>本地服务器打开进行测试 <code>hexo d</code>部署到git</p>
-</li>
-<li>跳出github 登录界面：输入账户密码即可<h3 id="待添加内容"><a href="#待添加内容" class="headerlink" title="待添加内容"></a>待添加内容</h3><h4 id="主题的管理"><a href="#主题的管理" class="headerlink" title="主题的管理"></a>主题的管理</h4><h4 id="markdown的简单操作"><a href="#markdown的简单操作" class="headerlink" title="markdown的简单操作"></a>markdown的简单操作</h4><h4 id="新增博文的做法"><a href="#新增博文的做法" class="headerlink" title="新增博文的做法"></a>新增博文的做法</h4><h4 id="在博文中增加图片"><a href="#在博文中增加图片" class="headerlink" title="在博文中增加图片"></a>在博文中增加图片</h4></li>
-</ol>
 
       
     </div>
@@ -355,13 +324,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/06/搭建博客（hexo+github）/">hexo+github搭建博客</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/06/hexo搭建博客时博文中添加图片/">hexo写博文时插入本地图片</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxc</a></p>
-        <p><span>发布时间:</span>2017-06-06, 21:28:37</p>
-        <p><span>最后更新:</span>2017-06-06, 21:40:40</p>
+        <p><span>发布时间:</span>2017-06-06, 22:25:21</p>
+        <p><span>最后更新:</span>2017-06-06, 22:38:04</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/06/搭建博客（hexo+github）/" title="hexo+github搭建博客">http://yoursite.com/2017/06/06/搭建博客（hexo+github）/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/06/搭建博客（hexo+github）/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/06/hexo搭建博客时博文中添加图片/" title="hexo写博文时插入本地图片">http://yoursite.com/2017/06/06/hexo搭建博客时博文中添加图片/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/06/hexo搭建博客时博文中添加图片/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -375,8 +344,8 @@
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/05/cookie&session/">
-                    cookie&amp;session
+                <a href="/2017/06/06/blog_hexo+github/">
+                    hexo+github搭建博客
                 </a>
             </div>
         
@@ -388,7 +357,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#终于完成搭建博客，现在分享自己的历程"><span class="toc-number">1.</span> <span class="toc-text">终于完成搭建博客，现在分享自己的历程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">1.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始博客"><span class="toc-number">1.2.</span> <span class="toc-text">开始博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到github仓库"><span class="toc-number">1.3.</span> <span class="toc-text">部署到github仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#待添加内容"><span class="toc-number">1.3.1.</span> <span class="toc-text">待添加内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主题的管理"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">主题的管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#markdown的简单操作"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">markdown的简单操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新增博文的做法"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">新增博文的做法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在博文中增加图片"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">在博文中增加图片</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我认为可能可行的解决办法"><span class="toc-number">1.</span> <span class="toc-text">我认为可能可行的解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-将图片文件夹传到云服务器上，或者在github-io文件下建立一个文件夹"><span class="toc-number">1.1.</span> <span class="toc-text">1.将图片文件夹传到云服务器上，或者在github.io文件下建立一个文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-本地引用，利用CodeFalling-hexo-asset-image插件"><span class="toc-number">1.2.</span> <span class="toc-text">2.本地引用，利用CodeFalling/hexo-asset-image插件</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -424,7 +393,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"hexo+github搭建博客　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"hexo写博文时插入本地图片　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -450,13 +419,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/05/cookie&session/" title="下一篇: cookie&amp;session">
+            <a href="/2017/06/06/blog_hexo+github/" title="下一篇: hexo+github搭建博客">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/搭建博客（hexo+github）/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/cookie&session/">cookie&session</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/JSP的request对象/">JSP中的request</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/jsp中的内置对象/">JSP中的内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/maven/">maven用途</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/http超文本传输协议/">HTTP协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/hello/">hello</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/hexo搭建博客时博文中添加图片/">hexo写博文时插入本地图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/blog_hexo+github/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/cookie&session/">cookie&session</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/JSP的request对象/">JSP中的request</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/jsp中的内置对象/">JSP中的内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/maven/">maven用途</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/http超文本传输协议/">HTTP协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/hello/">hello</a></li></ul>
 
 
 
