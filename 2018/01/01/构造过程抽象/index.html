@@ -15,15 +15,17 @@
 
 
 
-<meta name="description" content="zxc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zxc&#39;s blog">
-<meta property="og:url" content="https://cprocc.github.io/archives/page/2/index.html">
+<meta name="description" content="摘要构造过程抽象">
+<meta name="keywords" content="构造过程抽象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机程序构造(1)">
+<meta property="og:url" content="https://cprocc.github.io/2018/01/01/构造过程抽象/index.html">
 <meta property="og:site_name" content="zxc&#39;s blog">
-<meta property="og:description" content="zxc">
+<meta property="og:description" content="摘要构造过程抽象">
+<meta property="og:updated_time" content="2018-01-01T10:52:45.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zxc&#39;s blog">
-<meta name="twitter:description" content="zxc">
+<meta name="twitter:title" content="计算机程序构造(1)">
+<meta name="twitter:description" content="摘要构造过程抽象">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -55,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | zxc&#39;s blog</title>
+<title>计算机程序构造(1) | zxc&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,8 +67,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -264,138 +266,203 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-构造过程抽象" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2018/01/01/构造过程抽象/" class="article-date">
+      <time datetime="2018-01-01T10:44:28.000Z" itemprop="datePublished">2018-01-01</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      计算机程序构造(1)
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/日志/">日志</a><a class="article-category-link" href="/categories/日志/计算机科学/">计算机科学</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构造过程抽象/">构造过程抽象</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/06/01/JSP的request对象/" class="archive-article-date">
-      <time datetime="2017-06-01T06:39:15.000Z" itemprop="datePublished">06-01</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/01/JSP的request对象/">JSP中的request</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/日志/">日志</a><a class="article-category-link" href="/categories/日志/二级目录/">二级目录</a>
+        <p>摘要<br>构造过程抽象<br><a id="more"></a><br>正文：</p>
+<h1 id="LISP（list-processing）"><a href="#LISP（list-processing）" class="headerlink" title="LISP（list processing）"></a>LISP（list processing）</h1><ul>
+<li>应用序求值：“完全展开而后归约”，<lisp 采用这种方法，1、避免对于表达式的重复求值（比如求平方）；2、采用替换方式模拟的过程范围之后，正则序的处理将变得复杂很多="">。</lisp></li>
+<li>正则：序求值：“先求值参数而后应用”。</li>
+<li>形参：“约束变量”。在一个过程的定义里，被声明为这个过程的形式参数的那些约束变量，就以这个过程的体作为他们的约束变量。</li>
+<li>递归计算过程：有一个推迟的计算链条刻画，解释器需要维护好那些以后将要执行的操作轨迹。</li>
+<li>迭代计算过程：一般来说。迭代过程就是那种状态可以用固定数目的<strong>状态变量</strong>描述的计算过程。所需的计算步骤随着问题规模n<em>线性增长</em>，我们就称之为<em>线性迭代过程</em>。</li>
+</ul>
+<hr>
+<p>求三角函数</p>
+<pre><code>float sin_x(float x){
+if (x&gt;0.1){
+    return (3*sin_x(x/3)-4*sin_x(x/3)*sin_x(x/3)*sin_x(x/3));
+}
+else return x;
+</code></pre><hr>
+<p>求幂次方</p>
+<pre><code>/*float nsa(float a ,int n){
+float res=1;
+    for(int i=1;i&lt;=n;i++){
+    res*=a;
+    }
+    return res;
+}*/迭代
+
+float nsa(float a ,int n){
+     if(n&gt;1) return a*nsa(a ,--n);
+     else  return a;
+}//递归
+</code></pre><hr>
+<p>最大公约数</p>
+<pre><code>int gcd(int a,int b){
+    if (b==0) return a;
+    else return gcd(b,a%b);
+}
+</code></pre><hr>
+
+      
     </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/06/01/http超文本传输协议/" class="archive-article-date">
-      <time datetime="2017-06-01T06:38:15.000Z" itemprop="datePublished">06-01</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/01/http超文本传输协议/">HTTP协议</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/日志/">日志</a><a class="article-category-link" href="/categories/日志/二级目录/">二级目录</a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/01/01/构造过程抽象/">计算机程序构造(1)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">zxc</a></p>
+        <p><span>发布时间:</span>2018-01-01, 18:44:28</p>
+        <p><span>最后更新:</span>2018-01-01, 18:52:45</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/01/01/构造过程抽象/" title="计算机程序构造(1)">https://cprocc.github.io/2018/01/01/构造过程抽象/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://cprocc.github.io/2018/01/01/构造过程抽象/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP协议/">HTTP协议</a></li></ul>
-    </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/06/01/hello/" class="archive-article-date">
-      <time datetime="2017-06-01T02:49:15.000Z" itemprop="datePublished">06-01</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/01/hello/">hello</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/日志/">日志</a><a class="article-category-link" href="/categories/日志/二级目录/">二级目录</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hello/">hello</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/12/28/2017.08-2017.12/">
+                    考了个研（5个月没更博客了
+                </a>
+            </div>
+        
     </nav>
-  
 
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LISP（list-processing）"><span class="toc-number">1.</span> <span class="toc-text">LISP（list processing）</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"计算机程序构造(1)　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/12/28/2017.08-2017.12/" title="下一篇: 考了个研（5个月没更博客了">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/构造过程抽象/">计算机程序构造(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/2017.08-2017.12/">考了个研（5个月没更博客了</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/24/pyhton_cling/">python_cling</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/Git_cmd/">Git cmd</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/spring_ioc/">spring_ioc</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/hexo搭建博客时博文中添加图片/">hexo写博文时插入本地图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/blog_hexo+github/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/cookie&session/">cookie&session</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/jsp中的内置对象/">JSP中的内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/maven/">maven用途</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/JSP的request对象/">JSP中的request</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/http超文本传输协议/">HTTP协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/hello/">hello</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
