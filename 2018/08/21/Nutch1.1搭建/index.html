@@ -15,22 +15,17 @@
 
 
 
-<meta name="description" content="摘要">
-<meta name="keywords" content="spring">
+<meta name="description" content="摘要Windows下配置nutch">
+<meta name="keywords" content="Nutch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring_ioc">
-<meta property="og:url" content="https://cprocc.github.io/2017/06/12/spring_ioc/index.html">
+<meta property="og:title" content="Windows下Nutch配置">
+<meta property="og:url" content="https://cprocc.github.io/2018/08/21/Nutch1.1搭建/index.html">
 <meta property="og:site_name" content="zxc&#39;s blog">
-<meta property="og:description" content="摘要">
-<meta property="og:image" content="https://cprocc.github.io/2017/06/12/spring_ioc/ioc_01.jpg">
-<meta property="og:image" content="https://cprocc.github.io/2017/06/12/spring_ioc/ioc_02.jpg">
-<meta property="og:image" content="https://cprocc.github.io/2017/06/12/spring_ioc/value_set.jpg">
-<meta property="og:image" content="https://cprocc.github.io/2017/06/12/spring_ioc/value_set1.jpg">
-<meta property="og:updated_time" content="2017-06-12T13:52:00.645Z">
+<meta property="og:description" content="摘要Windows下配置nutch">
+<meta property="og:updated_time" content="2018-08-21T14:56:18.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring_ioc">
-<meta name="twitter:description" content="摘要">
-<meta name="twitter:image" content="https://cprocc.github.io/2017/06/12/spring_ioc/ioc_01.jpg">
+<meta name="twitter:title" content="Windows下Nutch配置">
+<meta name="twitter:description" content="摘要Windows下配置nutch">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -62,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>spring_ioc | zxc&#39;s blog</title>
+<title>Windows下Nutch配置 | zxc&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +266,11 @@
     </div>
     <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
-      <div class="body-wrap"><article id="post-spring_ioc" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Nutch1.1搭建" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/12/spring_ioc/" class="article-date">
-      <time datetime="2017-06-12T13:51:52.000Z" itemprop="datePublished">2017-06-12</time>
+      <a href="/2018/08/21/Nutch1.1搭建/" class="article-date">
+      <time datetime="2018-08-21T04:02:36.000Z" itemprop="datePublished">2018-08-21</time>
 </a>
 
 
@@ -290,7 +285,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      spring_ioc
+      Windows下Nutch配置
     </h1>
   
 
@@ -299,13 +294,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/日志/">日志</a><a class="article-category-link" href="/categories/日志/二级目录/">二级目录</a>
+    <a class="article-category-link" href="/categories/爬虫/">爬虫</a><a class="article-category-link" href="/categories/爬虫/Nutch1-1搭建/">Nutch1.1搭建</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nutch/">Nutch</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -315,39 +310,66 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>摘要<br><a id="more"></a><br>正文：<br>spring框架 2003年，轻量级框架</p>
-<h1 id="ioc控制反转"><a href="#ioc控制反转" class="headerlink" title="ioc控制反转"></a>ioc控制反转</h1><h2 id="实现访问到类函数的三种方法："><a href="#实现访问到类函数的三种方法：" class="headerlink" title="实现访问到类函数的三种方法："></a>实现访问到类函数的三种方法：</h2><ol>
-<li>在类里面调用</li>
-<li>工厂模式<br><img src="/2017/06/12/spring_ioc/ioc_01.jpg" alt=""></li>
-<li>反转控制的方法<br><img src="/2017/06/12/spring_ioc/ioc_02.jpg" alt=""></li>
-</ol>
-<ul>
-<li>spring的配置文件名称位置不固定，建议挡在src下面，官方建议命名applicationContext.xml</li>
-<li>引入schema约束，在html文件中找，从下往上<h2 id="Bean实例化"><a href="#Bean实例化" class="headerlink" title="Bean实例化"></a>Bean实例化</h2></li>
+        <p>摘要<br>Windows下配置nutch<br><a id="more"></a><br>正文：<br>author：赵新诚</p>
+<hr>
+<h1 id="本文介绍了在windows下，配置nutch抓取固定网页内容，放在本地，并通过tomcat部署nutch进行爬取内容检索的过程"><a href="#本文介绍了在windows下，配置nutch抓取固定网页内容，放在本地，并通过tomcat部署nutch进行爬取内容检索的过程" class="headerlink" title="本文介绍了在windows下，配置nutch抓取固定网页内容，放在本地，并通过tomcat部署nutch进行爬取内容检索的过程"></a>本文介绍了在windows下，配置nutch抓取固定网页内容，放在本地，并通过tomcat部署nutch进行爬取内容检索的过程</h1><h2 id="1-写在前面"><a href="#1-写在前面" class="headerlink" title="1.写在前面"></a>1.写在前面</h2><ul>
+<li>nutch官方发布的有两条产品线，1.x版本是基于Hadoop架构的，底层存储使用的是HDFS，而2.x通过使用Apache Gora，使得Nutch可以访问HBase、Accumulo、Cassandra、MySQL、DataFileAvroStore、AvroStore等NoSQL</li>
+<li>官方从1.7版本开始不再提供完整的部署文件，需要手动编译，而windows下的手动编译又需要额外的插件，所以本文选择了较为原始的1.1版本，仅作为自建搜索引擎的初次尝试。其他版本的使用将在后续进行。<h2 id="2-配置nutch-1-1"><a href="#2-配置nutch-1-1" class="headerlink" title="2.配置nutch-1.1"></a>2.配置nutch-1.1</h2></li>
+<li>需要jDK环境</li>
+<li>在windows端有两种配置方法，1.Eclipse中配置；2.用cygwin在windows下模拟Linux环境配置</li>
+<li>鉴于我自己的电脑上已安装过Eclipse，所以本教程采用在Eclipse中配置</li>
 </ul>
 <ol>
-<li>在spring中通过配置文件创建对象</li>
-<li>bean实例化的三种方式</li>
-</ol>
-<ul>
-<li>实用类的无参函数构造（在有属性的情况下，定义一个空类）</li>
-<li>静态工厂</li>
-<li>实例工厂<h2 id="bean属性"><a href="#bean属性" class="headerlink" title="bean属性"></a>bean属性</h2></li>
+<li>下载对应的nutch版本  <a href="http://archive.apache.org/dist/nutch/" target="_blank" rel="external">http://archive.apache.org/dist/nutch/</a> </li>
+<li>在Eclipse中新建java project，project name假设为nutch-1.1-test</li>
+<li><ul>
+<li>将nutch-1.1\src\java目录下的org文件夹整个复制到新建Java项目nutch-1.1-test的src包下</li>
+<li>将nutch-1.1目录下的conf、lib、plugins复制到与nutch-1.1-test中src同级目录</li>
+<li>在nutch-1.1-test中conf目录上单击右键→BuildPath→UseasSourceFolder，将配置文件conf加到path中   </li>
+<li>在Nutch-1.1-test目录上单击右键→BuildPath→ConfigureBuildPath…，然后将lib中所有的jar包添加到libraries里面</li>
 </ul>
+</li>
+<li>修改Eclipse下文件的配置文件:<br> conf下的nutch-site.xml, </li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</div><div class="line"></div><div class="line"><span class="comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>http.agent.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<p>conf下的crawl-urlfilter.txt:</p>
+<p>将 <code># accept hosts in MY.DOMAIN.NAME  +^http://([a-z0-9]*\.)*MY.DOMAIN.NAME/</code>替换成 <code># accept hosts in MY.DOMAIN.NAME  +^http://([a-z0-9]*\.)*</code></p>
 <ol>
-<li>id属性:不能包含特殊符号</li>
-<li>class属性：创建对象所在类的全路径</li>
-<li>name属性，和id一样，可以包含符号</li>
-<li><p>scope属性<br>singleton: 默认值，单例</p>
-<p>prototype:多例</p>
-<p>request</p>
-<p>session</p>
-<p>globalsession</p>
+<li><p>在项目的根目录新建urls文件夹，并在其中新建一个urls.txt文件，是用来存放要爬取的url测试Crawl类。本例中urls中的内容 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://www.baidu.com</div><div class="line">http://www.pku.edu.cn</div></pre></td></tr></table></figure>
+</li>
+<li><p>在MyEclipse中，展开src目录，找到org/apache/nutch/crawl包下的Crawl.java类，双击打开。右击打开RunConfigurations配置一下运行参数：Run as →  Run Configuration → Arguments </p>
+<p> Program arguments输入：<code>crawl urls -dir out -threads 20 -depth 4</code></p>
+<p> crawl:是nutch的爬虫命令</p>
+<p> urls:是新建的urls文件夹，用来读取要爬取的网址</p>
+<p> -dir out：是爬去结果的输出路径、我们制定爬取的结果放置在与项目同路径的out（可自己取名）文件夹下，运行结束后在本地out文件夹下会生成5个文件夹：crawldb、index、indexes、linkdb、segments</p>
+<p> linkdb是存放URL的互联关系的，是所有页面下载完成后所分析的来；</p>
+<p> indexes为每次下载的索引目录；</p>
+<p> index为Lucene格式的索引目录，为indexes中的索引合并后的完整索引，这一点从控制台的最后输出也可以看出来；</p>
+<p> segments存放抓取的页面信息，抓取多少层数的页面，就会有几个子文件夹，本文抓取层数为5，所以该文件下有5个子文件，每个子文件中又有一些子目录。</p>
+<p> 子目录名|存放内容<br> —|—<br> context|下载的页面内容<br> crawl_fetch|下载URL的状态<br> crawl_generate|待下载的URL集合信息<br> crawl_parse|外部链接库<br> parse_data|下载URL解析的外部链接及其他数据<br> parse_text|URL解析的文本内容</p>
+<p> -threads 20:是开启的进程数</p>
+<p> -depth 2:是要爬取得深度（可以自己试着调节，从小到大）</p>
+<p> -topN 10:是显示前10</p>
+<p> VM arguments输入：<code>-Xms32m -Xmx800m</code> 这是设置内存大小，如果不设置会导致内存溢出异常</p>
+<h2 id="3-将搜索布置在tomcat上"><a href="#3-将搜索布置在tomcat上" class="headerlink" title="3.将搜索布置在tomcat上"></a>3.将搜索布置在tomcat上</h2></li>
+<li><p>首先配置tomcat，有很多相关教程，此处省略</p>
+</li>
+<li>在最初下载的nutch-1.1中找到 nutch-1.1.war文件，复制至tomcat文件夹下的webapps目录下</li>
+<li>启动tomcat这时候会自动解压nutch-1.1.war，关闭tomcat</li>
+<li><p>webapps\nutch-1.1\WEB-INF\classes目录下的nutch-site.xml文件，修改其中的属性，添加：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>searcher.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>上文中out的绝对路径<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Tomcat添加中文字符支持。因为tomcat默认不支持中文字符集，所以还需要添加中文字符支持,找到tomcat根目录下的conf中的server.xml，修改其中的Connector port属性，在属性的最后增加<br> <code>URIEncoding=&quot;UTF-8&quot; useBodyEncodingForURI=&quot;true&quot;</code> 如下：</p>
 </li>
 </ol>
-<h2 id="属性注入的三种方法"><a href="#属性注入的三种方法" class="headerlink" title="属性注入的三种方法"></a>属性注入的三种方法</h2><p><img src="/2017/06/12/spring_ioc/value_set.jpg" alt=""></p>
-<p><img src="/2017/06/12/spring_ioc/value_set1.jpg" alt=""></p>
-<h1 id="aop面向切面"><a href="#aop面向切面" class="headerlink" title="aop面向切面"></a>aop面向切面</h1>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">            <span class="attr">...</span></div><div class="line">            <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span></div><div class="line">            <span class="attr">useBodyEncodingForURI</span>=<span class="string">"true"</span>/&gt;</div></pre></td></tr></table></figure>
+<h2 id="值得注意"><a href="#值得注意" class="headerlink" title="值得注意"></a>值得注意</h2><ul>
+<li>要严格注意nutch的下载版本</li>
+<li>有些网站爬不下来数据，目前还不知道原因如: www.dlut.edu.cn</li>
+</ul>
+
       
     </div>
     
@@ -355,13 +377,13 @@
   
     
     <div class="copyright">
-        <p><span>本文標題:</span><a href="/2017/06/12/spring_ioc/">spring_ioc</a></p>
+        <p><span>本文標題:</span><a href="/2018/08/21/Nutch1.1搭建/">Windows下Nutch配置</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主頁">zxc</a></p>
-        <p><span>發布時間:</span>2017-06-12, 21:51:52</p>
-        <p><span>最後更新:</span>2017-06-12, 21:52:00</p>
+        <p><span>發布時間:</span>2018-08-21, 12:02:36</p>
+        <p><span>最後更新:</span>2018-08-21, 22:56:18</p>
         <p>
-            <span>原始鏈接:</span><a class="post-url" href="/2017/06/12/spring_ioc/" title="spring_ioc">https://cprocc.github.io/2017/06/12/spring_ioc/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://cprocc.github.io/2017/06/12/spring_ioc/　　作者: zxc" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/2018/08/21/Nutch1.1搭建/" title="Windows下Nutch配置">https://cprocc.github.io/2018/08/21/Nutch1.1搭建/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://cprocc.github.io/2018/08/21/Nutch1.1搭建/　　作者: zxc" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -374,15 +396,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/14/Git_cmd/">
-                    Git cmd
+                <a href="/2018/08/21/Nutch2.3.1搭建/">
+                    Ubuntu下Nutch配置
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/06/hexo搭建博客时博文中添加图片/">
-                    hexo写博文时插入本地图片
+                <a href="/2018/04/02/master retest/">
+                    研究生复试（又是一篇迟到的博客
                 </a>
             </div>
         
@@ -394,7 +416,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目錄</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ioc控制反转"><span class="toc-number">1.</span> <span class="toc-text">ioc控制反转</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现访问到类函数的三种方法："><span class="toc-number">1.1.</span> <span class="toc-text">实现访问到类函数的三种方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean实例化"><span class="toc-number">1.2.</span> <span class="toc-text">Bean实例化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bean属性"><span class="toc-number">1.3.</span> <span class="toc-text">bean属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性注入的三种方法"><span class="toc-number">1.4.</span> <span class="toc-text">属性注入的三种方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#aop面向切面"><span class="toc-number">2.</span> <span class="toc-text">aop面向切面</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本文介绍了在windows下，配置nutch抓取固定网页内容，放在本地，并通过tomcat部署nutch进行爬取内容检索的过程"><span class="toc-number">1.</span> <span class="toc-text">本文介绍了在windows下，配置nutch抓取固定网页内容，放在本地，并通过tomcat部署nutch进行爬取内容检索的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-写在前面"><span class="toc-number">1.1.</span> <span class="toc-text">1.写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置nutch-1-1"><span class="toc-number">1.2.</span> <span class="toc-text">2.配置nutch-1.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-将搜索布置在tomcat上"><span class="toc-number">1.3.</span> <span class="toc-text">3.将搜索布置在tomcat上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#值得注意"><span class="toc-number">1.4.</span> <span class="toc-text">值得注意</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -430,7 +452,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"spring_ioc　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Windows下Nutch配置　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -450,7 +472,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/14/Git_cmd/" title="上一篇: Git cmd">
+            <a href="/2018/08/21/Nutch2.3.1搭建/" title="上一篇: Ubuntu下Nutch配置">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -458,7 +480,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/06/hexo搭建博客时博文中添加图片/" title="下一篇: hexo写博文时插入本地图片">
+            <a href="/2018/04/02/master retest/" title="下一篇: 研究生复试（又是一篇迟到的博客">
                 <i class="fa fa-angle-right"></i>
             </a>
         
