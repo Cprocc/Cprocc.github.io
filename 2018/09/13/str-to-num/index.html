@@ -16,15 +16,15 @@
 
 
 <meta name="description" content="摘要">
-<meta name="keywords" content="maven">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="maven用途">
-<meta property="og:url" content="https://cprocc.github.io/2017/06/01/maven/index.html">
+<meta property="og:title" content="python">
+<meta property="og:url" content="https://cprocc.github.io/2018/09/13/str-to-num/index.html">
 <meta property="og:site_name" content="zxc&#39;s blog">
 <meta property="og:description" content="摘要">
-<meta property="og:updated_time" content="2017-06-01T06:39:06.235Z">
+<meta property="og:updated_time" content="2018-09-13T15:08:10.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="maven用途">
+<meta name="twitter:title" content="python">
 <meta name="twitter:description" content="摘要">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>maven用途 | zxc&#39;s blog</title>
+<title>python | zxc&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -266,11 +266,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-maven" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-str-to-num" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/01/maven/" class="article-date">
-      <time datetime="2017-06-01T06:39:15.000Z" itemprop="datePublished">2017-06-01</time>
+      <a href="/2018/09/13/str-to-num/" class="article-date">
+      <time datetime="2018-09-13T15:08:04.000Z" itemprop="datePublished">2018-09-13</time>
 </a>
 
 
@@ -285,7 +285,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      maven用途
+      python
     </h1>
   
 
@@ -294,13 +294,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/日志/">日志</a><a class="article-category-link" href="/categories/日志/二级目录/">二级目录</a>
+    <a class="article-category-link" href="/categories/python数据格式转换/">python数据格式转换</a><a class="article-category-link" href="/categories/python数据格式转换/二级目录/">二级目录</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -310,41 +310,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>摘要<br><a id="more"></a><br>正文：<br><a href="http://www.cnblogs.com/hongwz/p/5456578.html" target="_blank" rel="external">http://www.cnblogs.com/hongwz/p/5456578.html</a></p>
-<h3 id="maven-的作用"><a href="#maven-的作用" class="headerlink" title="maven 的作用"></a>maven 的作用</h3><p>在开发中，为了保证编译通过，我们会到处去寻找jar包，当编译通过了，运行的时候，却发现”ClassNotFoundException”，我们想到的是，难道还差jar包？</p>
-<p>每个Java项目的目录结构都没有一个统一的标准，配置文件到处都是，单元测试代码到底应该放在那里也没有一个权威的规范。</p>
-<p>因此，我们就要用到Maven（使用Ant也可以，不过编写Ant的xml脚本比较麻烦）—-一个项目管理工具。</p>
-<h3 id="Maven主要做了两件事："><a href="#Maven主要做了两件事：" class="headerlink" title="Maven主要做了两件事："></a>Maven主要做了两件事：</h3><p>统一开发规范与工具</p>
-<p>统一管理jar包</p>
-<p>看到使用Maven构建的普通Java项目，对源代码、单元测试代码、资源乃至后续需要的文件都有专门的目录规划。</p>
-<p>上面的最后有一个pom.xml，这是Maven的核心配置文件，pom称为Project Object Model（项目对象模型），它用于描述整个Maven项目，所以也称为Maven描述文件。</p>
-<p>当然事情不会这么简单，接下来，继续进入Maven的世界吧。</p>
-<h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"><br><br>  <modelversion>4.0.0</modelversion><br>  <groupid>com.xrq.withmaven</groupid><br>  <artifactid>withmaven</artifactid><br>  <version>0.0.1-SNAPSHOT</version><br>  <build><br></build></project>
-
-<p>因为这个配置文件是Maven的核心，因此有必要详细解读一下pom.xml，来先看一下上面的几个：</p>
-<p>1、modelVersion</p>
-<p>　　指定了当前Maven模型的版本号，对于Maven2和Maven3来说，它只能是4.0.0</p>
-<p>2、groupId</p>
-<p>　　顾名思义，这个应该是公司名或是组织名。一般来说groupId是由三个部分组成，每个部分之间以”.”分隔，第一部分是项目用途，比如用于商业的就是”com”，用于非营利性组织的就　　是”org”；第二部分是公司名，比如”tengxun”、”baidu”、”alibaba”；第三部分是你的项目名</p>
-<p>3、artifactId</p>
-<p>　　可以认为是Maven构建的项目名，比如你的项目中有子项目，就可以使用”项目名-子项目名”的命名方式</p>
-<p>4、version</p>
-<p>　　版本号，SNAPSHOT意为快照，说明该项目还在开发中，是不稳定的版本。在Maven中很重要的一点是，groupId、artifactId、version三个元素生成了一个Maven项目的基本坐标，这非常重要，我在使用和研究Maven的时候多次感受到了这点。</p>
-<p>在上面的这些元素之外，还有一些元素，同样罗列一下：</p>
-<p>1、packing</p>
-<p>　　项目打包的类型，可以使jar、war、rar、ear、pom，默认是jar</p>
-<p>2、dependencies和dependency</p>
-<p>　　前者包含后者。前面说了，Maven的一个重要作用就是统一管理jar包，为了一个项目可以build或运行，项目中不可避免的，会依赖很多其他的jar包，在Maven中，这些依赖就被称为dependency。</p>
-<p>　　说到这里，就有一个本地仓库和远程仓库的概念了。官方下载的本地仓库的配置在”%MAVEN_HOME%\conf\settings.xml”里面，找一下”localRepository”就可以了；MyEclipse默认的本地仓库的地址在”{user.home}/.m2/repository”路径下，同样找一下”localRepository”就可以找到MyEclipse默认的本地仓库了。</p>
-<p>　　本地仓库和远程仓库是这样的，Maven工程首先会从本地仓库中获取jar包，当无法获取指定jar包时，本地仓库会从远程仓库（中央仓库）中下载jar包，并放入本地仓库以备将来使用。</p>
-<h2 id="举个例子，比方说我的项目中用到了MyBatis，那么可以这么配置："><a href="#举个例子，比方说我的项目中用到了MyBatis，那么可以这么配置：" class="headerlink" title="　　举个例子，比方说我的项目中用到了MyBatis，那么可以这么配置："></a>　　举个例子，比方说我的项目中用到了MyBatis，那么可以这么配置：</h2><p><dependencies><br>    <dependency><br>        <groupid>org.mybatis</groupid><br>        <artifactid>mybatis</artifactid><br>        <version>3.2.5</version><br>    </dependency><br></dependencies><br>    之前有说过groupId、artifactId、version唯一标识一个Maven项目，有了这三个元素，我们就可以去远程仓库下载MyBatis3.2.5.jar到本地仓库了。回想我们之前的做法，如果要MyBatis的jar包，发现没有，然后去网上下载一个，需要另外的jar包，然后去网上下载一个，但是有了Maven，就方便多了，只需要配置jar包对应的dependency依赖，Maven会自动帮助我们去远程仓库中下载jar包到本地仓库中。</p>
-<p>3、properties</p>
-<p>　　properties是用来定义一些配置属性的，例如project.build.sourceEncoding（项目构建源码编码方式），可以设置为UTF-8，防止中文乱码，也可定义相关构建版本号，便于日后统一升级。</p>
-<p>4、build</p>
-<p>　　build表示与构建相关的配置，比如build下有finalName，表示的就是最终构建之后的名称。</p>
-<p>接着解释一下Maven的目录结构：</p>
-<p>main目录下是项目的主要代码，test目录下存放测试相关的代码<br>编译输出后的代码会放在target目录下<br>src/main/java下存放Java代码，src/main/resources下存放配置文件<br>这里没有webapp，Web项目会有webapp目录，webapp下存放Web应用相关代码<br>pom.xml是Maven项目的配置文件</p>
-
+        <p>摘要<br><a id="more"></a><br>正文：</p>
+<h2 id="python-list-amp-string之间的相互转换"><a href="#python-list-amp-string之间的相互转换" class="headerlink" title="python list&amp;string之间的相互转换"></a>python list&amp;string之间的相互转换</h2><ul>
+<li>str string类型包含数字空格</li>
+<li>num list类型包含 整型 数字</li>
+<li>strs string类型，是一个12345字符串</li>
+<li>nums list类型，每个元素都是字符串</li>
+</ul>
+<p>相互转换如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">str = <span class="string">"1 2 3 4 5"</span></div><div class="line">num = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</div><div class="line">strs = <span class="string">'1'</span> <span class="string">'2'</span> <span class="string">'3'</span> <span class="string">'4'</span> <span class="string">'5'</span></div><div class="line">nums = [<span class="string">'1'</span> ,<span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>]</div><div class="line">print(str ,type(str),str[<span class="number">0</span>],type(str[<span class="number">0</span>]),<span class="string">'\n'</span>,num,type(num),num[<span class="number">0</span>],type(num[<span class="number">0</span>]),<span class="string">'\n'</span>,</div><div class="line">      strs,type(strs),strs[<span class="number">0</span>],type(strs[<span class="number">0</span>]),<span class="string">'\n'</span>,nums,type(nums),nums[<span class="number">0</span>],type(nums[<span class="number">0</span>]) )</div><div class="line"></div><div class="line"></div><div class="line">str_turnto_nums = str.split(<span class="string">" "</span>)</div><div class="line">print(str_turnto_nums)</div><div class="line"></div><div class="line">nums_turnto_num =[ int(x) <span class="keyword">for</span> x <span class="keyword">in</span> nums ]</div><div class="line">nums_turnto_num = list(map(int, nums))</div><div class="line">print(nums_turnto_num)</div><div class="line"></div><div class="line">nums_turnto_str = <span class="string">' '</span>.join(nums)</div><div class="line">print(nums_turnto_str)</div><div class="line"></div><div class="line">strs_turnto_str =list(strs)</div><div class="line">print(strs_turnto_str)</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -352,13 +326,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/01/maven/">maven用途</a></p>
+        <p><span>本文标题:</span><a href="/2018/09/13/str-to-num/">python</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxc</a></p>
-        <p><span>发布时间:</span>2017-06-01, 14:39:15</p>
-        <p><span>最后更新:</span>2017-06-01, 14:39:06</p>
+        <p><span>发布时间:</span>2018-09-13, 23:08:04</p>
+        <p><span>最后更新:</span>2018-09-13, 23:08:10</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/01/maven/" title="maven用途">https://cprocc.github.io/2017/06/01/maven/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://cprocc.github.io/2017/06/01/maven/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/13/str-to-num/" title="python">https://cprocc.github.io/2018/09/13/str-to-num/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://cprocc.github.io/2018/09/13/str-to-num/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -370,16 +344,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/05/cookie&session/">
-                    cookie&amp;session
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/01/jsp中的内置对象/">
-                    JSP中的内置对象
+                <a href="/2018/08/21/Nutch2.3.1搭建/">
+                    Ubuntu下Nutch配置
                 </a>
             </div>
         
@@ -391,7 +359,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#maven-的作用"><span class="toc-number">1.</span> <span class="toc-text">maven 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven主要做了两件事："><span class="toc-number">2.</span> <span class="toc-text">Maven主要做了两件事：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pom-xml"><span class="toc-number"></span> <span class="toc-text">pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举个例子，比方说我的项目中用到了MyBatis，那么可以这么配置："><span class="toc-number"></span> <span class="toc-text">　　举个例子，比方说我的项目中用到了MyBatis，那么可以这么配置：</span></a>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#python-list-amp-string之间的相互转换"><span class="toc-number">1.</span> <span class="toc-text">python list&string之间的相互转换</span></a></li></ol>
         
     </div>
     <style>
@@ -427,7 +395,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"maven用途　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"python　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -447,15 +415,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/05/cookie&session/" title="上一篇: cookie&amp;session">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/01/jsp中的内置对象/" title="下一篇: JSP中的内置对象">
+            <a href="/2018/08/21/Nutch2.3.1搭建/" title="下一篇: Ubuntu下Nutch配置">
                 <i class="fa fa-angle-right"></i>
             </a>
         
