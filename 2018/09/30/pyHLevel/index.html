@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-Hangs">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="zxc" />
+
+
+
+<meta name="description" content="摘要：python大杂烩">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python高级">
+<meta property="og:url" content="https://cprocc.github.io/2018/09/30/pyHLevel/index.html">
+<meta property="og:site_name" content="zxc&#39;s blog">
+<meta property="og:description" content="摘要：python大杂烩">
+<meta property="og:updated_time" content="2018-09-30T06:20:13.285Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python高级">
+<meta name="twitter:description" content="摘要：python大杂烩">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="zxc&#39;s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>python高级 | zxc&#39;s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">zxc</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">一只正在变黑的小白</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto: 755516806@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/5233244493/profile?topnav=1&wvr=6" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/Cprocc" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/Cprocc/activities" title="知乎"></a>
+                            
+                                <a class="fa SegmentFault" href="https://segmentfault.com/u/zhaoxincheng" title="SegmentFault"></a>
+                            
+                                <a class="fa CSDN" href="http://my.csdn.net/onecleaner" title="CSDN"></a>
+                            
+                                <a class="fa Facebook" href="https://www.facebook.com/xinxin.zhao.7165" title="Facebook"></a>
+                            
+                                <a class="fa Instagram" href="https://www.instagram.com/z_xxcc/" title="Instagram"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP协议/">HTTP协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/">JSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nutch/">Nutch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/">hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp/">jsp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造数据抽象/">构造数据抽象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程抽象/">构造过程抽象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">zxc</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">zxc</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">一只正在变黑的小白</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto: 755516806@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/5233244493/profile?topnav=1&wvr=6" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Cprocc" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/Cprocc/activities" title="知乎"></a>
+                            
+                                <a class="fa SegmentFault" target="_blank" href="https://segmentfault.com/u/zhaoxincheng" title="SegmentFault"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="http://my.csdn.net/onecleaner" title="CSDN"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="https://www.facebook.com/xinxin.zhao.7165" title="Facebook"></a>
+                            
+                                <a class="fa Instagram" target="_blank" href="https://www.instagram.com/z_xxcc/" title="Instagram"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-pyHLevel" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/30/pyHLevel/" class="article-date">
+      <time datetime="2018-09-30T06:39:15.000Z" itemprop="datePublished">2018-09-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python高级
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/python/">python</a><a class="article-category-link" href="/categories/python/python/">python</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>摘要：python大杂烩<br><a id="more"></a><br>正文：</p>
+<h1 id="python高级编程"><a href="#python高级编程" class="headerlink" title="python高级编程"></a>python高级编程</h1><h2 id="python循环导入"><a href="#python循环导入" class="headerlink" title="python循环导入"></a>python循环导入</h2><ul>
+<li>a调用b，b调用a</li>
+<li>怎样避免<ol>
+<li>程序设计上分层，降低耦合</li>
+<li>导入语句放在需要导入的函数体内</li>
+</ol>
+</li>
+</ul>
+<h2 id="copy-amp-deepcopy"><a href="#copy-amp-deepcopy" class="headerlink" title="copy&amp;deepcopy"></a>copy&amp;deepcopy</h2><ul>
+<li>import copy</li>
+<li>copy.copy() 浅拷贝，只拷贝父类元素，且对于不可变元素的拷贝变成简单的赋值操作如：tuple</li>
+<li>copy.deepcopy() 深拷贝</li>
+</ul>
+<h2 id="进制-amp-位运算"><a href="#进制-amp-位运算" class="headerlink" title="进制&amp;位运算"></a>进制&amp;位运算</h2><ul>
+<li>计算机中，数字是二进制补码的形式存储的</li>
+<li>正数：原码==反码==补码</li>
+<li>负数：反码==符号为不变，其他位取反，补码==反码+1<ul>
+<li>eg：~9 = -10<h2 id="类和变量的私有化"><a href="#类和变量的私有化" class="headerlink" title="类和变量的私有化"></a>类和变量的私有化</h2></li>
+</ul>
+</li>
+<li>XX公有变量/方法</li>
+<li>__XX:避免与子类中的属性明明冲突，无法在外部直接访问（由于名字重整name mangling）</li>
+<li><strong> XX </strong>  magic方法</li>
+<li>_x :单前置下划线，私有化属性或方法。from someModule import*禁止导入，但是类对象和子类可以访问</li>
+<li>X_:单后置下划线，用于避免与python关键字冲突</li>
+<li>from privat import* 无法导入下划线的名字方法</li>
+<li>import privat 可以导入下划线的名字方法</li>
+</ul>
+<h2 id="staticmethod-和-classmethod的区别"><a href="#staticmethod-和-classmethod的区别" class="headerlink" title="staticmethod 和 classmethod的区别"></a>staticmethod 和 classmethod的区别</h2><h2 id="property"><a href="#property" class="headerlink" title="property"></a>property</h2><h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><ol>
+<li>小正数对象池 [-5,257]</li>
+<li>大正数对象池</li>
+<li>intern 机制   </li>
+<li>GC <ul>
+<li>无法解决循环引用的问题。n1.next = n2 n2.prev = n1,当n1，n2都置为空时也计数器仍为1</li>
+<li>Generation Zero，Python使用一种不同的活跃的链表来保持追踪活跃的对象。python会循环遍历零代列表上的每个对象，根据规则减掉其引用计数，在这个过程中，python还会一个接一个的统计内部引用量以防止过早的释放现象。<h2 id="hasattr-amp-getattr-amp-setattr"><a href="#hasattr-amp-getattr-amp-setattr" class="headerlink" title="hasattr&amp;getattr&amp;setattr"></a>hasattr&amp;getattr&amp;setattr</h2></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>类也是一种对象</li>
+<li>输出class，class()多了一行class object at…..</li>
+<li>type(class) is type</li>
+<li>type不仅可以用来查看类型，也可以用来创建类<h2 id="元类"><a href="#元类" class="headerlink" title="元类"></a>元类</h2></li>
+</ul>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><ul>
+<li>a = [x*2 for x in range(10000000)]//可能崩溃</li>
+<li>列表元素按照某种算法推出来，在循环过程中不断推算出后续的元素，这样就不必创建完整的list，从而节省大量的空间。这种机制在python中成为生成器:generator</li>
+<li>生成器是可迭代对象</li>
+<li>生成一个简单的迭代器<code>G = (x for x in range(5))</code>，next(G)逐个访问</li>
+<li><p>g1 = G这里用的是浅拷贝</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(times)</span>:</span></div><div class="line">    n = <span class="number">0</span></div><div class="line">    a,b = <span class="number">0</span>,<span class="number">1</span></div><div class="line">    <span class="keyword">while</span> n &lt; times:</div><div class="line">        <span class="keyword">yield</span> b</div><div class="line">        a,b = b,a+b</div><div class="line">        n+=<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'done'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>fib(5)调用时返回的是一个对象,a = fib(5),next(a)  //  a.<strong>next</strong>(),调用第一次的时候只执行到yield这个语句。什么时候调用就什么时候执行一次生成器循环,以异常结束。用for num in range(a)，正常结束。</p>
+</li>
+<li>yield,是一个类似于return的关键字，遇到yield时就返回yield后面的值。重点是：下一次迭代时，从上一次迭代遇到的yield后面的代码开始执行</li>
+<li>send(msg)与next()的区别:当出现temp = yield i这样的语句时，一次next temp获取不到值，利用send(msg),msg将会给到temp。但是第一次对迭代器进行操作就调用send()会出现错误,可以send(None)。</li>
+</ul>
+<hr>
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><ul>
+<li>迭代是访问集合的一种方式，迭代器是一个可以记住遍历的位置的对象。迭代器对象从集合的第一个元素开始访问，直到访问结束。</li>
+<li>可迭代对象<ul>
+<li>数据结合，list，tuple，dict，set，str</li>
+<li>generator，包括生成器和带yiled的generator function</li>
+<li>统称为iterable</li>
+</ul>
+</li>
+<li><code>from collections import Iterable</code>， <code>isinstance([],Iterable)</code></li>
+<li>迭代器<ul>
+<li><code>from collections import Iterator</code>,<code>isinstance([],Iterator)</code></li>
+<li>可迭代对象不一定是迭代器</li>
+<li>迭代器可使用next()方法</li>
+<li>iter(),用来转化。<code>isinstance(iter([]),Iterator)</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ul>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"--1--"</span>)</div><div class="line">b = test</div><div class="line">b()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>输出“–1–”</p>
+<ul>
+<li>什么是闭包：在函数内部定义一个函数，并且这个函数用到了本身外部的变量</li>
+<li>在大函数内部返回闭包，在外部可以通过获取函数返回值调用闭包，外部函数的结果暂时存储在栈中</li>
+<li>闭包的应用：构建线性方程，a*x + b简化调用过程，一种函数产生多种模式同时存在调用。 </li>
+</ul>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><ol>
+<li>闭包的作用之一:装饰器</li>
+<li>装饰器的调用过程和@顺序相同，和装饰器顺序相反</li>
+<li>在python解释器开始工作的时候，装饰器就开始进行装饰了，不需要等到调用</li>
+<li><p>有参数/不定长参数/带有返回值的类型进行装饰</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(functionName)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">funcIn</span><span class="params">(*args,**kwargs)</span>:</span></div><div class="line">        print(<span class="string">"---record---"</span>)</div><div class="line">        ret = functionName(*args,**kwargs)</div><div class="line">        <span class="keyword">return</span> ret</div><div class="line">    <span class="keyword">return</span> funcIn</div></pre></td></tr></table></figure>
+</li>
+<li><p>装饰器带参数</p>
+</li>
+<li><p>类做装饰器</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,func)</span>:</span>  <span class="comment">#func获得tes1函数</span></div><div class="line">        print(<span class="string">"---init---"</span>)</div><div class="line">        print(func.__name__)</div><div class="line">        self.__func = func</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self,*args,**kwargs)</span>:</span></div><div class="line">        print(<span class="string">"call me"</span>)</div><div class="line">        self.__name</div><div class="line"></div><div class="line"><span class="meta">@Test  #tes1 = Test(tes1)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">tes1</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"---test---"</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="动态添加属性和方法"><a href="#动态添加属性和方法" class="headerlink" title="动态添加属性和方法"></a>动态添加属性和方法</h2><ul>
+<li>定义的时候没有运行的时候可以添加，动态适应变化</li>
+</ul>
+<ol>
+<li><p>给对象添加属性，直接添加</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></div><div class="line">            self.name = name</div><div class="line">    a = Person(<span class="string">"a"</span>)</div><div class="line">    a.addr = <span class="string">"beijing"</span></div><div class="line"><span class="number">2.</span> 给类添加属性</div><div class="line">    ```python</div><div class="line">    Person.age = <span class="number">18</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>添加方法</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self,speed)</span>:</span></div><div class="line">    print(a.neme,<span class="string">" move "</span>,speed)</div><div class="line"></div><div class="line"><span class="keyword">import</span> typpes</div><div class="line">a.run = types.MethodType(run,a) <span class="comment">#前面的a.run只是便于理解和调用，函数内部的参数决定了添加到了哪里</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>添加静态，类方法</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">tes1</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"--tes1--"</span>)</div><div class="line">Person.tes1 = tes1</div><div class="line">Person.tes1()</div></pre></td></tr></table></figure>
+</li>
+<li><p>限制添加</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonS</span><span class="params">(object)</span>:</span></div><div class="line">    __solts__ = (<span class="string">"name"</span>,<span class="string">'age'</span>)</div><div class="line"></div><div class="line">p = PersonS()</div><div class="line">p.name = <span class="string">'p'</span></div><div class="line">p.age = <span class="number">18</span></div><div class="line"><span class="comment"># p.addR = 'beijing'  Wrong</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="LEGB"><a href="#LEGB" class="headerlink" title="LEGB"></a>LEGB</h2><ul>
+<li>locals -&gt; enclosing function -&gt; globals -&gt; builtins</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2018/09/30/pyHLevel/">python高级</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">zxc</a></p>
+        <p><span>Created:</span>2018-09-30, 14:39:15</p>
+        <p><span>Updated:</span>2018-09-30, 14:20:13</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2018/09/30/pyHLevel/" title="python高级">https://cprocc.github.io/2018/09/30/pyHLevel/</a>
+            <span class="copy-path" data-clipboard-text="From https://cprocc.github.io/2018/09/30/pyHLevel/　　By zxc" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/09/13/str-to-num/">
+                    python
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python高级编程"><span class="toc-number">1.</span> <span class="toc-text">python高级编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#python循环导入"><span class="toc-number">1.1.</span> <span class="toc-text">python循环导入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#copy-amp-deepcopy"><span class="toc-number">1.2.</span> <span class="toc-text">copy&deepcopy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进制-amp-位运算"><span class="toc-number">1.3.</span> <span class="toc-text">进制&位运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类和变量的私有化"><span class="toc-number">1.4.</span> <span class="toc-text">类和变量的私有化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#staticmethod-和-classmethod的区别"><span class="toc-number">1.5.</span> <span class="toc-text">staticmethod 和 classmethod的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#property"><span class="toc-number">1.6.</span> <span class="toc-text">property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.7.</span> <span class="toc-text">垃圾回收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hasattr-amp-getattr-amp-setattr"><span class="toc-number">1.8.</span> <span class="toc-text">hasattr&getattr&setattr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元类"><span class="toc-number">1.9.</span> <span class="toc-text">元类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成器"><span class="toc-number">1.10.</span> <span class="toc-text">生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代器"><span class="toc-number">1.11.</span> <span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.12.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装饰器"><span class="toc-number">1.13.</span> <span class="toc-text">装饰器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态添加属性和方法"><span class="toc-number">1.14.</span> <span class="toc-text">动态添加属性和方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LEGB"><span class="toc-number">1.15.</span> <span class="toc-text">LEGB</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"python高级　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/09/13/str-to-num/" title="Next: python">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/pyHLevel/">python高级</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/13/str-to-num/">python</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/21/Nutch1.1搭建/">Windows下Nutch配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/21/Nutch2.3.1搭建/">Ubuntu下Nutch配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/master retest/">研究生复试（又是一篇迟到的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/03/构造数据抽象/">计算机程序构造(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/构造过程抽象/">计算机程序构造(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/2017.08-2017.12/">考了个研（5个月没更博客了</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/24/pyhton_cling/">python_cling</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/Git_cmd/">Git cmd</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/spring_ioc/">spring_ioc</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/hexo搭建博客时博文中添加图片/">hexo写博文时插入本地图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/blog_hexo+github/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/cookie&session/">cookie&session</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/JSP的request对象/">JSP中的request</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/jsp中的内置对象/">JSP中的内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/maven/">maven用途</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/http超文本传输协议/">HTTP协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/hello/">hello</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 zxc
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
