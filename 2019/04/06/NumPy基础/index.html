@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="zh-Hangs">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="zxc" />
+
+
+
+<meta name="description" content="摘要 :numpy入门">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="numpy入门">
+<meta property="og:url" content="https://cprocc.github.io/2019/04/06/NumPy基础/index.html">
+<meta property="og:site_name" content="zxc&#39;s blog">
+<meta property="og:description" content="摘要 :numpy入门">
+<meta property="og:image" content="https://cprocc.github.io/2019/04/06/NumPy基础/output_38_1.png">
+<meta property="og:image" content="https://cprocc.github.io/2019/04/06/NumPy基础/attachment:image.png">
+<meta property="og:image" content="https://cprocc.github.io/2019/04/06/NumPy基础/output_119_1.png">
+<meta property="og:updated_time" content="2019-04-06T10:03:08.733Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="numpy入门">
+<meta name="twitter:description" content="摘要 :numpy入门">
+<meta name="twitter:image" content="https://cprocc.github.io/2019/04/06/NumPy基础/output_38_1.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="zxc&#39;s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>numpy入门 | zxc&#39;s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">zxc</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">一只正在变黑的小白</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto: 755516806@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/5233244493/profile?topnav=1&wvr=6" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/Cprocc" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/Cprocc/activities" title="知乎"></a>
+                            
+                                <a class="fa SegmentFault" href="https://segmentfault.com/u/zhaoxincheng" title="SegmentFault"></a>
+                            
+                                <a class="fa CSDN" href="http://my.csdn.net/onecleaner" title="CSDN"></a>
+                            
+                                <a class="fa Facebook" href="https://www.facebook.com/xinxin.zhao.7165" title="Facebook"></a>
+                            
+                                <a class="fa Instagram" href="https://www.instagram.com/z_xxcc/" title="Instagram"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP协议/">HTTP协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/">JSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nutch/">Nutch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/">hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp/">jsp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造数据抽象/">构造数据抽象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程抽象/">构造过程抽象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">zxc</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">zxc</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">一只正在变黑的小白</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto: 755516806@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/5233244493/profile?topnav=1&wvr=6" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Cprocc" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/Cprocc/activities" title="知乎"></a>
+                            
+                                <a class="fa SegmentFault" target="_blank" href="https://segmentfault.com/u/zhaoxincheng" title="SegmentFault"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="http://my.csdn.net/onecleaner" title="CSDN"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="https://www.facebook.com/xinxin.zhao.7165" title="Facebook"></a>
+                            
+                                <a class="fa Instagram" target="_blank" href="https://www.instagram.com/z_xxcc/" title="Instagram"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-NumPy基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/06/NumPy基础/" class="article-date">
+      <time datetime="2019-04-06T14:58:26.000Z" itemprop="datePublished">2019-04-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      numpy入门
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/numpy/">numpy</a><a class="article-category-link" href="/categories/numpy/python/">python</a><a class="article-category-link" href="/categories/numpy/python/DataScience/">DataScience</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>摘要 :numpy入门<br><a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">my_arr = np.arange(<span class="number">1000000</span>)</div><div class="line">my_list = list(range(<span class="number">1000000</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%time <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>): my_arr *= <span class="number">2</span></div></pre></td></tr></table></figure>
+<pre><code>Wall time: 7.98 ms
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%time <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>): my_list = [x*<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> my_list]</div></pre></td></tr></table></figure>
+<pre><code>Wall time: 863 ms
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data = np.random.randn(<span class="number">2</span>, <span class="number">3</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data</div></pre></td></tr></table></figure>
+<pre><code>array([[ 0.40606555,  0.67984832,  1.11704801],
+       [-0.34921171,  1.6361505 , -1.81012707]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data * <span class="number">10</span></div></pre></td></tr></table></figure>
+<pre><code>array([[  4.06065547,   6.79848322,  11.17048009],
+       [ -3.49211707,  16.36150495, -18.10127066]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(data.shape, data.dtype)</div></pre></td></tr></table></figure>
+<pre><code>(2, 3) float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.dtype</div></pre></td></tr></table></figure>
+<pre><code>dtype(&apos;int32&apos;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">float_arr = arr.astype(np.float64)</div><div class="line">float_arr.dtype</div></pre></td></tr></table></figure>
+<pre><code>dtype(&apos;float64&apos;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int_array = np.arange(<span class="number">10</span>)</div><div class="line">calibers = np.array([<span class="number">.22</span>, <span class="number">.270</span>, <span class="number">.357</span>, <span class="number">380</span>, <span class="number">.44</span>, <span class="number">.50</span>], dtype=np.float64)</div><div class="line">int_array.astype(calibers.dtype)</div></pre></td></tr></table></figure>
+<pre><code>array([0., 1., 2., 3., 4., 5., 6., 7., 8., 9.])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">names = np.array([<span class="string">'Bob'</span>, <span class="string">'Joe'</span>, <span class="string">'Will'</span>, <span class="string">'Bob'</span>, <span class="string">'Will'</span>, <span class="string">'Joe'</span>, <span class="string">'Joe'</span>])</div><div class="line">data = np.random.randn(<span class="number">7</span>, <span class="number">4</span>)</div><div class="line">data</div></pre></td></tr></table></figure>
+<pre><code>array([[ 0.84173532,  0.40172217,  0.63352946, -0.71887962],
+       [-0.13291625, -1.20593694, -0.38683062, -0.47085204],
+       [-0.61820366,  0.50289061, -0.84699895, -1.53579082],
+       [ 0.67045527, -0.13838969,  1.00699244, -1.00792143],
+       [-0.61210731, -0.1134628 , -0.1825786 , -2.27300458],
+       [ 1.48082954,  1.38343994,  2.36697054, -0.98831078],
+       [ 0.16631325,  1.79542369,  0.04304029, -0.75222772]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">names</div></pre></td></tr></table></figure>
+<pre><code>array([&apos;Bob&apos;, &apos;Joe&apos;, &apos;Will&apos;, &apos;Bob&apos;, &apos;Will&apos;, &apos;Joe&apos;, &apos;Joe&apos;], dtype=&apos;&lt;U4&apos;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">names == <span class="string">"Bob"</span></div></pre></td></tr></table></figure>
+<pre><code>array([ True, False, False,  True, False, False, False])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data[names == <span class="string">"Bob"</span>]</div></pre></td></tr></table></figure>
+<pre><code>array([[ 0.84173532,  0.40172217,  0.63352946, -0.71887962],
+       [ 0.67045527, -0.13838969,  1.00699244, -1.00792143]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data[names == <span class="string">"Bob"</span>, <span class="number">2</span>:]</div></pre></td></tr></table></figure>
+<pre><code>array([[ 0.63352946, -0.71887962],
+       [ 1.00699244, -1.00792143]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data[names == <span class="string">"Bob"</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
+<pre><code>array([-0.71887962, -1.00792143])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data[~(names == <span class="string">'Bob'</span>)]</div></pre></td></tr></table></figure>
+<pre><code>array([[-0.13291625, -1.20593694, -0.38683062, -0.47085204],
+       [-0.61820366,  0.50289061, -0.84699895, -1.53579082],
+       [-0.61210731, -0.1134628 , -0.1825786 , -2.27300458],
+       [ 1.48082954,  1.38343994,  2.36697054, -0.98831078],
+       [ 0.16631325,  1.79542369,  0.04304029, -0.75222772]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data[data &lt; <span class="number">0</span>] = <span class="number">0</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data</div></pre></td></tr></table></figure>
+<pre><code>array([[0.84173532, 0.40172217, 0.63352946, 0.        ],
+       [0.        , 0.        , 0.        , 0.        ],
+       [0.        , 0.50289061, 0.        , 0.        ],
+       [0.67045527, 0.        , 1.00699244, 0.        ],
+       [0.        , 0.        , 0.        , 0.        ],
+       [1.48082954, 1.38343994, 2.36697054, 0.        ],
+       [0.16631325, 1.79542369, 0.04304029, 0.        ]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr = np.empty((<span class="number">8</span>,<span class="number">4</span>))</div><div class="line">arr</div></pre></td></tr></table></figure>
+<pre><code>array([[ 0.00000000e+000,  0.00000000e+000,  1.59174063e-311,
+        -2.38654040e-310],
+       [ 0.00000000e+000,  0.00000000e+000,  0.00000000e+000,
+         0.00000000e+000],
+       [ 0.00000000e+000, -3.80405588e-311,  1.59174064e-311,
+        -2.44086348e-310],
+       [ 1.59174064e-311,  1.59174064e-311,  1.59174064e-311,
+         1.59174064e-311],
+       [ 1.59174064e-311,  1.59174064e-311,  1.59169082e-311,
+        -2.49518661e-310],
+       [ 1.59169081e-311,  1.59167465e-311,  1.59169070e-311,
+         1.59169082e-311],
+       [ 1.59169070e-311,  1.59169081e-311,  1.59169081e-311,
+        -2.54950969e-310],
+       [ 1.59169082e-311,  1.59169082e-311,  1.59169082e-311,
+         1.59168184e-311]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">8</span>):</div><div class="line">    arr[i] = i</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr</div></pre></td></tr></table></figure>
+<pre><code>array([[0., 0., 0., 0.],
+       [1., 1., 1., 1.],
+       [2., 2., 2., 2.],
+       [3., 3., 3., 3.],
+       [4., 4., 4., 4.],
+       [5., 5., 5., 5.],
+       [6., 6., 6., 6.],
+       [7., 7., 7., 7.]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr[[<span class="number">4</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">6</span>]]</div></pre></td></tr></table></figure>
+<pre><code>array([[4., 4., 4., 4.],
+       [3., 3., 3., 3.],
+       [0., 0., 0., 0.],
+       [6., 6., 6., 6.]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<pre><code>array([1., 1., 1., 1.])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr[[<span class="number">-3</span>, <span class="number">-5</span> , <span class="number">-7</span>]]</div></pre></td></tr></table></figure>
+<pre><code>array([[5., 5., 5., 5.],
+       [3., 3., 3., 3.],
+       [1., 1., 1., 1.]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr = np.arange(<span class="number">32</span>).reshape((<span class="number">8</span>,<span class="number">4</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr</div></pre></td></tr></table></figure>
+<pre><code>array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11],
+       [12, 13, 14, 15],
+       [16, 17, 18, 19],
+       [20, 21, 22, 23],
+       [24, 25, 26, 27],
+       [28, 29, 30, 31]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr[[<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">2</span>],[<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]]</div></pre></td></tr></table></figure>
+<pre><code>array([ 4, 23, 29, 10])
+</code></pre><ul>
+<li>[[a0,a1][b0, b1]],取出下标为（a0，b0）(a1, b1)的元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">points = np.arange(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">0.01</span>)</div><div class="line">points1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">points2 = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</div><div class="line">test = np.meshgrid(points1, points2)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test</div></pre></td></tr></table></figure>
+<pre><code>[array([[1, 2, 3],
+        [1, 2, 3],
+        [1, 2, 3]]), array([[4, 4, 4],
+        [5, 5, 5],
+        [6, 6, 6]])]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xs, ys = np.meshgrid(points, points)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ys</div></pre></td></tr></table></figure>
+<pre><code>array([[-5.  , -5.  , -5.  , ..., -5.  , -5.  , -5.  ],
+       [-4.99, -4.99, -4.99, ..., -4.99, -4.99, -4.99],
+       [-4.98, -4.98, -4.98, ..., -4.98, -4.98, -4.98],
+       ...,
+       [ 4.97,  4.97,  4.97, ...,  4.97,  4.97,  4.97],
+       [ 4.98,  4.98,  4.98, ...,  4.98,  4.98,  4.98],
+       [ 4.99,  4.99,  4.99, ...,  4.99,  4.99,  4.99]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xs</div></pre></td></tr></table></figure>
+<pre><code>array([[-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],
+       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],
+       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],
+       ...,
+       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],
+       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],
+       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">z = np.sqrt(test[<span class="number">1</span>] ** <span class="number">2</span> + test[<span class="number">0</span>] ** <span class="number">2</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">z</div></pre></td></tr></table></figure>
+<pre><code>array([[4.12310563, 4.47213595, 5.        ],
+       [5.09901951, 5.38516481, 5.83095189],
+       [6.08276253, 6.32455532, 6.70820393]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plt.imshow(z, cmap = plt.cm.gray); plt.colorbar();</div><div class="line">plt.title(<span class="string">"Image for some sqrt(X^2 + Y^2)"</span>)</div></pre></td></tr></table></figure>
+<pre><code>Text(0.5,1,&apos;Image for some sqrt(X^2 + Y^2)&apos;)
+</code></pre><p><img src="/2019/04/06/NumPy基础/output_38_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xarr = np.array([<span class="number">1.1</span>, <span class="number">1.2</span>, <span class="number">1.3</span>, <span class="number">1.4</span>, <span class="number">1.5</span>])</div><div class="line">yarr = np.array([<span class="number">2.1</span>, <span class="number">2.2</span>, <span class="number">2.3</span>, <span class="number">2.4</span>, <span class="number">2.5</span>])</div><div class="line">cond = np.array([<span class="keyword">True</span>, <span class="keyword">False</span>, <span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">False</span>])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">result = [(x <span class="keyword">if</span> c <span class="keyword">else</span> y)</div><div class="line">          <span class="keyword">for</span> x, y, c <span class="keyword">in</span> zip(xarr, yarr, cond)]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result</div></pre></td></tr></table></figure>
+<pre><code>[1.1, 2.2, 1.3, 1.4, 2.5]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(zip(xarr, yarr, cond))</div></pre></td></tr></table></figure>
+<pre><code>&lt;zip object at 0x000002EE22ACD508&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">result = np.where(cond, xarr, yarr)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
+<pre><code>[1.1 2.2 1.3 1.4 2.5]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">result = np.where(cond, <span class="number">1.1</span>, <span class="number">2</span>)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
+<pre><code>[1.1 2.  1.1 1.1 2. ]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">result = np.where(result &gt; <span class="number">1.5</span>, <span class="number">1.1</span>, <span class="number">2</span>)</div><div class="line">print(result)</div></pre></td></tr></table></figure>
+<pre><code>[2.  1.1 2.  2.  1.1]
+</code></pre><h2 id="数学和统计方法"><a href="#数学和统计方法" class="headerlink" title="数学和统计方法"></a>数学和统计方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr = np.random.randn(<span class="number">5</span>, <span class="number">4</span>)</div><div class="line">print(arr.mean())</div><div class="line">print(arr.sum())</div></pre></td></tr></table></figure>
+<pre><code>0.013386889883143904
+0.2677377976628781
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr</div></pre></td></tr></table></figure>
+<pre><code>array([[-0.37146428, -1.2295961 , -0.35908332,  0.04166758],
+       [-0.54135899,  1.31692376, -0.22312899, -1.09234275],
+       [ 1.07758395,  0.02762683, -1.75727644, -0.97199126],
+       [-0.35358095,  0.45154165,  0.92511177,  1.92335924],
+       [ 0.38358809,  0.34344964,  1.42539463, -0.74868626]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.sum(axis=<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<pre><code>array([ 0.19476781,  0.90994579,  0.01101765, -0.84799345])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.sum(axis=<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<pre><code>array([-1.91847612, -0.53990698, -1.62405691,  2.94643171,  1.4037461 ])
+</code></pre><ul>
+<li>统计不同轴的均值、和</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr = np.array([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>])</div><div class="line">arr.cumsum()</div></pre></td></tr></table></figure>
+<pre><code>array([ 0,  1,  3,  6, 10, 15, 21, 28], dtype=int32)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr = np.array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</div><div class="line">arr.cumsum()</div></pre></td></tr></table></figure>
+<pre><code>array([ 0,  1,  3,  6, 10, 15, 21, 28, 36], dtype=int32)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.cumsum(axis=<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<pre><code>array([[ 0,  1,  2],
+       [ 3,  5,  7],
+       [ 9, 12, 15]], dtype=int32)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.argmin()</div></pre></td></tr></table></figure>
+<pre><code>0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.argmax()</div></pre></td></tr></table></figure>
+<pre><code>8
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr[<span class="number">8</span>]</div></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
+
+IndexError                                Traceback (most recent call last)
+
+&lt;ipython-input-84-fda3f70a4ed4&gt; in &lt;module&gt;()
+----&gt; 1 arr[8]
+
+
+IndexError: index 8 is out of bounds for axis 0 with size 3
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr = np.random.randn(<span class="number">100</span>)</div><div class="line">(arr &gt; <span class="number">0</span>).sum()</div></pre></td></tr></table></figure>
+<pre><code>48
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr = np.array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span> ,<span class="number">1</span>, <span class="number">1</span>])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.any()</div></pre></td></tr></table></figure>
+<pre><code>True
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.all()</div></pre></td></tr></table></figure>
+<pre><code>False
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.sort()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr</div></pre></td></tr></table></figure>
+<pre><code>array([0, 1, 1, 1, 1])
+</code></pre><ul>
+<li>多维数组的排序</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr = np.random.randn(<span class="number">5</span>, <span class="number">3</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr</div></pre></td></tr></table></figure>
+<pre><code>array([[-0.96290061,  0.07992271, -0.77847775],
+       [-1.05087805, -0.26171674,  0.29901905],
+       [ 0.58262674,  0.05651331, -0.39744816],
+       [ 0.89994465, -0.22924454,  1.59108437],
+       [-0.71208878, -0.31408613,  1.81707621]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.sort(<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr</div></pre></td></tr></table></figure>
+<pre><code>array([[-1.05087805, -0.31408613, -0.77847775],
+       [-0.96290061, -0.26171674, -0.39744816],
+       [-0.71208878, -0.22924454,  0.29901905],
+       [ 0.58262674,  0.05651331,  1.59108437],
+       [ 0.89994465,  0.07992271,  1.81707621]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.sort()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr</div></pre></td></tr></table></figure>
+<pre><code>array([[-1.05087805, -0.77847775, -0.31408613],
+       [-0.96290061, -0.39744816, -0.26171674],
+       [-0.71208878, -0.22924454,  0.29901905],
+       [ 0.05651331,  0.58262674,  1.59108437],
+       [ 0.07992271,  0.89994465,  1.81707621]])
+</code></pre><ul>
+<li>这样的排序结果并不是从索引0- $m*n-1$ 逐步增大的方式，而是单纯保证了行列上都是已经排好序的</li>
+</ul>
+<h3 id="唯一化以及其他的集合逻辑"><a href="#唯一化以及其他的集合逻辑" class="headerlink" title="唯一化以及其他的集合逻辑"></a>唯一化以及其他的集合逻辑</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">names</div></pre></td></tr></table></figure>
+<pre><code>array([&apos;Bob&apos;, &apos;Joe&apos;, &apos;Will&apos;, &apos;Bob&apos;, &apos;Will&apos;, &apos;Joe&apos;, &apos;Joe&apos;], dtype=&apos;&lt;U4&apos;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.unique(names)</div></pre></td></tr></table></figure>
+<pre><code>array([&apos;Bob&apos;, &apos;Joe&apos;, &apos;Will&apos;], dtype=&apos;&lt;U4&apos;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ints = np.array([<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">4</span>])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.unique(ints)</div></pre></td></tr></table></figure>
+<pre><code>array([1, 2, 3, 4])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">%time names = np.array([<span class="string">'Bob'</span>, <span class="string">'Joe'</span>, <span class="string">'Will'</span>, <span class="string">'Bob'</span>, <span class="string">'Will'</span>, <span class="string">'Joe'</span>, <span class="string">'Joe'</span>])</div><div class="line">np.unique(names)</div></pre></td></tr></table></figure>
+<pre><code>Wall time: 0 ns
+
+
+
+
+
+array([&apos;Bob&apos;, &apos;Joe&apos;, &apos;Will&apos;], dtype=&apos;&lt;U4&apos;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test = np.random.randn(<span class="number">100000</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%time np.unique(test)</div></pre></td></tr></table></figure>
+<pre><code>Wall time: 8.97 ms
+
+
+
+
+
+array([-4.1106089 , -3.92619167, -3.91917501, ...,  3.98877661,
+        4.02067098,  4.18371114])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test = np.random.randn(<span class="number">100000</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%time sorted(set(test))</div></pre></td></tr></table></figure>
+<pre><code>Wall time: 144 ms
+
+
+
+
+
+[-4.704607084202515,
+ -4.231729801284674,
+ -4.065192741528416,
+ -4.058897286500303,
+ -3.9886407764169216,
+ -3.9672274503731466,
+ -3.920553083697834,
+ -3.8474383490062487,
+ -3.8130933880446074,
+ -3.8117460957148555,
+ -3.809080376106789,
+ -3.7757087835034966,
+ -3.77509609466122,
+ -3.774973631734371,
+ -3.695272365963234,
+ -3.667579420096552,
+ -3.6632692907094144,
+ -3.6590223993857496,
+ -3.6404617812846136,
+ -3.628917137249082,
+ -3.6219055048591278,
+ -3.6215994617500176,
+ -3.6036681276191813,
+ -3.592600364842577,
+ -3.57916815837184,
+ -3.573623941262063,
+ -3.5668961354182023,
+ -3.5661660096962917,
+ -3.553154315778853,
+ -3.5386724553822972,
+ -3.509001134188794,
+ -3.5073171197651702,
+ -3.5021202304920127,
+ -3.4777360297495075,
+ -3.4733312338061,
+ -3.467058533306224,
+ -3.4605096073987345,
+ -3.4522633290409086,
+ -3.4377697855189466,
+ -3.4337000069087833,
+ -3.418295790125096,
+ -3.4094424472969416,
+ -3.4068012533349754,
+ -3.3955349595094515,
+ -3.3894611234101193,
+ -3.37989279957216,
+ -3.3628414400103814,
+ -3.3538042243014714,
+ -3.349820203952676,
+ -3.3335504581044253,
+ -3.3216627253617337,
+ -3.3149648729342065,
+ -3.3111675505046163,
+ -3.3109721906610075,
+ -3.3108951153495747,
+ -3.3083732213177544,
+ -3.3031881921309294,
+ -3.3012302997973624,
+ -3.2946851567269713,
+ -3.2918598722663392,
+ -3.288776888118406,
+ -3.2853991865460004,
+ -3.2688303949815647,
+ -3.2645540705272325,
+ -3.26334091439977,
+ -3.2614102449716955,
+ -3.244953772517536,
+ -3.235350341982328,
+ -3.2290095858107275,
+ -3.2283321916505314,
+ -3.227031746358263,
+ -3.204618417771696,
+ -3.201705382695192,
+ -3.1944869058194194,
+ -3.193209771572946,
+ -3.192969101177476,
+ -3.1794599457606108,
+ -3.1794124613327974,
+ -3.1743963256209926,
+ -3.1711723670974465,
+ -3.1679451787968946,
+ -3.1658176239644544,
+ -3.164383062456203,
+ -3.1602003714438305,
+ -3.154890431462668,
+ -3.1497272609792613,
+ -3.136017525568581,
+ -3.135460951976236,
+ -3.130220088486774,
+ -3.130096131292835,
+ -3.1243951163170967,
+ -3.121989789894822,
+ -3.121928705439963,
+ -3.121384885189901,
+ -3.121017237757511,
+ -3.1173114503646,
+ -3.113468935425026,
+ -3.1134365160856845,
+ -3.1093780049717115,
+ -3.105302401897908,
+ -3.0996359440913044,
+ -3.0894261147852626,
+ -3.0805284405559883,
+ -3.077747674967449,
+ -3.0699542430453555,
+ -3.0688645775402077,
+ -3.063714337984882,
+ -3.0590862193301622,
+ -3.052592192227001,
+ -3.052343361034703,
+ -3.0474671999216545,
+ -3.039654721054694,
+ -3.0386939254145027,
+ -3.0359625729080286,
+ -3.034052577377613,
+ -3.029243857507072,
+ -3.0280073513064876,
+ -3.0271327018602494,
+ -3.0238261684618624,
+ -3.0197296647577616,
+ -3.0160013420935177,
+ -3.013912383161551,
+ -3.013514426380978,
+ -3.0073528275133534,
+ -3.004886644365217,
+ -3.0024399111904914,
+ -3.002036667150962,
+ -3.002015612297328,
+ -3.0011908100681985,
+ -2.9991003285493734,
+ -2.996931719509541,
+ -2.9950939796914007,
+ -2.9814092030274297,
+ -2.9784780387627787,
+ -2.977294094150183,
+ -2.97704938080649,
+ -2.976821780294914,
+ -2.9757200363669853,
+ -2.9754823730546356,
+ -2.9751732514935814,
+ -2.9718015497889234,
+ -2.9714649685067385,
+ -2.970202243927189,
+ -2.9699529638456665,
+ -2.9692372808181773,
+ -2.9690928041094904,
+ -2.965143483227597,
+ -2.962956676416525,
+ -2.960420216148036,
+ -2.9603299575625375,
+ -2.9595245862062503,
+ -2.9567938516187415,
+ -2.9565340715883304,
+ -2.9553431229190683,
+ -2.9541521698315454,
+ -2.9519610132481167,
+ -2.9502970954064254,
+ -2.9487698329841847,
+ -2.9402566782697064,
+ -2.9398031428235263,
+ -2.939639313328998,
+ -2.9394200304706266,
+ -2.9372214111266315,
+ -2.935738270547554,
+ -2.9354581953748733,
+ -2.9343849626143745,
+ -2.9318316760094834,
+ -2.927982944734728,
+ -2.9274393267279883,
+ -2.9267422418096998,
+ -2.922175820070376,
+ -2.9193055612711833,
+ -2.9182818369461554,
+ -2.9169948281890106,
+ -2.9139471261305947,
+ -2.9087611696712727,
+ -2.905084439886456,
+ -2.9049305924013833,
+ -2.9047453575526703,
+ -2.9031728009730866,
+ -2.9000532731227824,
+ -2.899734079646075,
+ -2.8972694077329537,
+ -2.8967370122428715,
+ -2.896382413711682,
+ -2.893530387436474,
+ -2.8930250177957695,
+ -2.891100116543925,
+ -2.8877600878032283,
+ -2.8866912311527666,
+ -2.8847028718995196,
+ -2.8810900006619202,
+ -2.877036900101599,
+ -2.875875693473162,
+ -2.8722412544229847,
+ -2.871075242619392,
+ -2.868407829041842,
+ -2.868123018735019,
+ -2.865665114242138,
+ -2.865563972163828,
+ -2.8652779887113153,
+ -2.865192149283595,
+ -2.8650785350822665,
+ -2.8645971287772998,
+ -2.8635578244797077,
+ -2.863089872252951,
+ -2.858182968929678,
+ -2.8579542713558137,
+ -2.8577374237291377,
+ -2.8527870800363067,
+ -2.8482412405733637,
+ -2.846578966770616,
+ -2.846379101350575,
+ -2.846017584742138,
+ -2.845178505125088,
+ -2.843358935026282,
+ -2.8417181415855937,
+ -2.841041430553889,
+ -2.840683996019325,
+ -2.838468332512383,
+ -2.83716565042541,
+ -2.8364295854216515,
+ -2.835489338967014,
+ -2.834793091739897,
+ -2.8345722872493875,
+ -2.8336479043610456,
+ -2.8272068005555147,
+ -2.8262019259893236,
+ -2.8215684545721635,
+ -2.8210648098085978,
+ -2.8178529917808173,
+ -2.8172251321907087,
+ -2.8150025291912657,
+ -2.8129876606004602,
+ -2.8104046429315352,
+ -2.8102594659293474,
+ -2.8084460739390082,
+ -2.80759434320178,
+ -2.805019803300454,
+ -2.8023898772832063,
+ -2.802280372025099,
+ -2.8020368927343675,
+ -2.80007989991146,
+ -2.7992514149862884,
+ -2.7980511663627583,
+ -2.7974821532320573,
+ -2.796021556655491,
+ -2.7945970050070845,
+ -2.794566929589313,
+ -2.794215482148793,
+ -2.793787744391019,
+ -2.7923469415128914,
+ -2.792027966400772,
+ -2.791543607194976,
+ -2.790432792049076,
+ -2.7895034200422937,
+ -2.7865411816260397,
+ -2.786064835081819,
+ -2.784067009492467,
+ -2.78378809367867,
+ -2.7831402357936508,
+ -2.779942665050433,
+ -2.779843989925388,
+ -2.7765805905954712,
+ -2.775624011565791,
+ -2.77406945134456,
+ -2.773026458853989,
+ -2.772958528126943,
+ -2.7729382563658245,
+ -2.772856161567638,
+ -2.7719677183402687,
+ -2.771179063880333,
+ -2.7697779375462708,
+ -2.7686587117572707,
+ -2.767705235081759,
+ -2.76620582166674,
+ -2.766200055696386,
+ -2.764271595578022,
+ -2.763705954237085,
+ -2.7610848625070252,
+ -2.759409473893065,
+ -2.757981420373721,
+ -2.757182166664686,
+ -2.7568589406490194,
+ -2.756360448256426,
+ -2.7554117087539955,
+ -2.7543174540582736,
+ -2.7534910214833634,
+ -2.7529425330355197,
+ -2.7524788875844437,
+ -2.752235148194268,
+ -2.7486456074329735,
+ -2.7472983617569287,
+ -2.746268297690445,
+ -2.745160923852167,
+ -2.744528110898864,
+ -2.7431869320336713,
+ -2.7420031364408004,
+ -2.7419135297417707,
+ -2.7407701921817083,
+ -2.739627004814315,
+ -2.73769994138934,
+ -2.736811381720243,
+ -2.7339865746361856,
+ -2.73363725606094,
+ -2.730564427594712,
+ -2.7297080333155685,
+ -2.72959830896278,
+ -2.7285592057580765,
+ -2.727830379014094,
+ -2.726320916913224,
+ -2.7259861994668846,
+ -2.7258833663905575,
+ -2.7255878794271498,
+ -2.725137702245236,
+ -2.722297191034655,
+ -2.7220626599811357,
+ -2.7214876351198276,
+ -2.7208741252361213,
+ -2.7204901192168216,
+ -2.7202715660770123,
+ -2.7200808067968185,
+ -2.7184399637669805,
+ -2.7177708814409574,
+ -2.7168348486137126,
+ -2.716286374061255,
+ -2.714017469861071,
+ -2.713670871469279,
+ -2.7134755760012665,
+ -2.7130008276794553,
+ -2.712870974666013,
+ -2.7117175129101145,
+ -2.7117046011564834,
+ -2.7106715536957617,
+ -2.7103841196342318,
+ -2.7100054694063926,
+ -2.7096071741837737,
+ -2.706901133034834,
+ -2.7062956705107064,
+ -2.704530005016181,
+ -2.704238703464316,
+ -2.703842327094702,
+ -2.7033452990230686,
+ -2.702594306049954,
+ -2.698400394531946,
+ -2.6977257301912276,
+ -2.6975658167947336,
+ -2.695802833377156,
+ -2.6930560379029638,
+ -2.6925427176109995,
+ -2.692331118675934,
+ -2.691698374851869,
+ -2.691521627637454,
+ -2.691505380608004,
+ -2.6913351614375953,
+ -2.6902558198584248,
+ -2.689275692744387,
+ -2.6888642866932764,
+ -2.686917767669759,
+ -2.6865551099507603,
+ -2.686075626416931,
+ -2.684215034336685,
+ -2.683025581881045,
+ -2.682790874806408,
+ -2.680623152307791,
+ -2.680261632276866,
+ -2.6799169604398543,
+ -2.6794573246518874,
+ -2.6792345367447945,
+ -2.678939181501012,
+ -2.678087138484001,
+ -2.6773723431886096,
+ -2.6765835905804147,
+ -2.675086508006802,
+ -2.6737102910687356,
+ -2.668424940619808,
+ -2.6684182310797433,
+ -2.6679459221196806,
+ -2.6676020162147727,
+ -2.665417287779689,
+ -2.6648421309839447,
+ -2.6632534470078397,
+ -2.6614499212388845,
+ -2.6613205987219697,
+ -2.660256308719456,
+ -2.659888597994194,
+ -2.6593928108479368,
+ -2.658143709119035,
+ -2.6553455945063567,
+ -2.65453769069349,
+ -2.653192089187476,
+ -2.6528814238409564,
+ -2.652622564536364,
+ -2.652417377684779,
+ -2.6507291613214683,
+ -2.6505912193081316,
+ -2.6493723346524782,
+ -2.6478193882657695,
+ -2.6477805205887064,
+ -2.6472448604080294,
+ -2.6470526866710085,
+ -2.645780553061859,
+ -2.644394147449725,
+ -2.6442149105136683,
+ -2.643567849582357,
+ -2.6427007586548252,
+ -2.6411270623654968,
+ -2.6403445230370144,
+ -2.640285226702041,
+ -2.6400115869458585,
+ -2.638633876227164,
+ -2.6383343736360447,
+ -2.638117705325254,
+ -2.637685733740278,
+ -2.637500598588678,
+ -2.63095231612061,
+ -2.6299835395705444,
+ -2.6274603131193066,
+ -2.626957133816667,
+ -2.6262458555893122,
+ -2.62510185656409,
+ -2.6250807094659083,
+ -2.6245969736378636,
+ -2.623409485316435,
+ -2.6228031707918396,
+ -2.6213882339288612,
+ -2.6204190843906474,
+ -2.62015392252923,
+ -2.619316768243192,
+ -2.619080369009763,
+ -2.6185615696255975,
+ -2.617328334199594,
+ -2.617214866933262,
+ -2.6126619311298245,
+ -2.611905043144907,
+ -2.6106021325001993,
+ -2.607807732736049,
+ -2.6070282403133347,
+ -2.6049126312404782,
+ -2.604203828676255,
+ -2.6026813700597686,
+ -2.602648040329242,
+ -2.6016331028512227,
+ -2.601187738589695,
+ -2.600876291239902,
+ -2.60058977559413,
+ -2.5992987310020386,
+ -2.5990474303992417,
+ -2.598561786524957,
+ -2.5979781218971114,
+ -2.5978490968325394,
+ -2.597724548462851,
+ -2.597316637594855,
+ -2.5969665178625596,
+ -2.5966675435406392,
+ -2.5965712249116923,
+ -2.5956694974977683,
+ -2.59478737875335,
+ -2.5938395621327777,
+ -2.593388293341812,
+ -2.59336752193997,
+ -2.592781646930807,
+ -2.5922237726911357,
+ -2.591059160996581,
+ -2.590836527173447,
+ -2.590338663260702,
+ -2.589878699932159,
+ -2.587942021527044,
+ -2.5878261217578253,
+ -2.586288234315865,
+ -2.5858471811294867,
+ -2.5857771943780974,
+ -2.584951163742866,
+ -2.584450456259247,
+ -2.5841488784112623,
+ -2.5841050012852405,
+ -2.58338454696188,
+ -2.583022846658023,
+ -2.582388035216088,
+ -2.5814258372046504,
+ -2.5802269509728615,
+ -2.579586332540461,
+ -2.579254881254348,
+ -2.5776225054019113,
+ -2.577550024120581,
+ -2.576981807287818,
+ -2.5769402765725986,
+ -2.5769096450482936,
+ -2.5761280851178534,
+ -2.5759563883346073,
+ -2.575630927456709,
+ -2.5741689746227725,
+ -2.5735883000852753,
+ -2.573146741650481,
+ -2.5731448022886694,
+ -2.5726940061182053,
+ -2.5723283037682543,
+ -2.5719828757947125,
+ -2.5700389385546347,
+ -2.569639903492865,
+ -2.568325438432893,
+ -2.567075627114994,
+ -2.566034237353683,
+ -2.5658311059401857,
+ -2.562624904070785,
+ -2.562287547293427,
+ -2.5619166506490463,
+ -2.561795850991749,
+ -2.561321224014056,
+ -2.561127952718725,
+ -2.5604692138726666,
+ -2.560366233802774,
+ -2.5593556774436412,
+ -2.5588880102406923,
+ -2.5586716493822954,
+ -2.558204339726008,
+ -2.5573896141625045,
+ -2.5568000811663394,
+ -2.5563355754426493,
+ -2.5557357409362096,
+ -2.5533183937344486,
+ -2.5527549553205344,
+ -2.55236098440649,
+ -2.55165236426234,
+ -2.5507284014034086,
+ -2.550442937177583,
+ -2.55044185133941,
+ -2.550372985992679,
+ -2.5493585641650767,
+ -2.547292697039091,
+ -2.547025348532558,
+ -2.5467947151982697,
+ -2.545528087174072,
+ -2.5452142165558818,
+ -2.543532066984042,
+ -2.5429353275845643,
+ -2.542522272396033,
+ -2.5425092842728616,
+ -2.539978598400841,
+ -2.539843963803759,
+ -2.538598354378353,
+ -2.538353862383456,
+ -2.537794358438628,
+ -2.5369754510134928,
+ -2.5365444931291186,
+ -2.534121099421167,
+ -2.53356871340209,
+ -2.53350942852983,
+ -2.5334297654858284,
+ -2.5330539119801903,
+ -2.532854955340598,
+ -2.5327618218825636,
+ -2.5325006389798177,
+ -2.53161182540618,
+ -2.5315667241759736,
+ -2.531479793232541,
+ -2.531203731834457,
+ -2.5311386163769405,
+ -2.530505630323791,
+ -2.529814836808385,
+ -2.5297972310258565,
+ -2.529337214537147,
+ -2.529170711339064,
+ -2.527969486302496,
+ -2.527945053688578,
+ -2.5277594532788923,
+ -2.5275941575897134,
+ -2.527413154430351,
+ -2.5260727279794044,
+ -2.52585684671794,
+ -2.5238547560932885,
+ -2.5226984258767113,
+ -2.5220630555523575,
+ -2.519882699426006,
+ -2.519782916698339,
+ -2.51898955798761,
+ -2.5186757398026747,
+ -2.5185925503328264,
+ -2.518047694386126,
+ -2.517640499359706,
+ -2.517525165113218,
+ -2.5174369839915327,
+ -2.517245646915098,
+ -2.5159980609538843,
+ -2.5157702317691912,
+ -2.515660569152697,
+ -2.51479816907954,
+ -2.514715224592385,
+ -2.5142739107603758,
+ -2.5140719895581642,
+ -2.5124666153074955,
+ -2.5116215285749712,
+ -2.5113541744106387,
+ -2.511280174510803,
+ -2.50981521807792,
+ -2.5096465861062964,
+ -2.509587299578467,
+ -2.5094286361459397,
+ -2.5091295572744916,
+ -2.50483245113896,
+ -2.504218056981041,
+ -2.503617346944488,
+ -2.5030623185526113,
+ -2.502521731799585,
+ -2.501610918852992,
+ -2.5015931606949118,
+ -2.5015172255254994,
+ -2.501306897977499,
+ -2.5012696038784936,
+ -2.4996199275968336,
+ -2.4992564925700873,
+ -2.4976158692648567,
+ -2.497453502167834,
+ -2.4971818649598974,
+ -2.494114345607198,
+ -2.4940627118824183,
+ -2.492467749930083,
+ -2.492418143798597,
+ -2.4918235082001376,
+ -2.49154474088588,
+ -2.4913682247640923,
+ -2.491311020051937,
+ -2.4905050732878657,
+ -2.490174627846339,
+ -2.4901156981990584,
+ -2.489905397265864,
+ -2.489548357010147,
+ -2.488574931595293,
+ -2.488222519052963,
+ -2.4869716087193376,
+ -2.486712899393868,
+ -2.486490741959536,
+ -2.4864189425600642,
+ -2.486162788720787,
+ -2.4838344895192117,
+ -2.4836966104061617,
+ -2.482716264549344,
+ -2.481864349849179,
+ -2.4817992257621304,
+ -2.481598080069225,
+ -2.4814389216191985,
+ -2.4809647502707297,
+ -2.479977532579469,
+ -2.4789929987440695,
+ -2.477169651016762,
+ -2.4767113799110763,
+ -2.4765251196341507,
+ -2.476443432708988,
+ -2.474679384507403,
+ -2.4736243634145203,
+ -2.471326342168301,
+ -2.471254424899943,
+ -2.471133760940795,
+ -2.4706592284752777,
+ -2.4703716801684896,
+ -2.4701560896766708,
+ -2.4701244516137995,
+ -2.468704980696688,
+ -2.4664899797663837,
+ -2.4658793147807807,
+ -2.46527833701208,
+ -2.46422277456024,
+ -2.46377169128629,
+ -2.4637480012460085,
+ -2.463113169730891,
+ -2.4629220887977277,
+ -2.4628589256570965,
+ -2.462138942839713,
+ -2.461459110641145,
+ -2.4614206724234498,
+ -2.4610233362792,
+ -2.460968103643984,
+ -2.4609624142643414,
+ -2.460175456010872,
+ -2.459044247585079,
+ -2.4587651939636235,
+ -2.458322130045114,
+ -2.4566012437328264,
+ -2.456074014531893,
+ -2.4557518168034975,
+ -2.4555992408589526,
+ -2.455502093563754,
+ -2.455468701101809,
+ -2.4553578286439923,
+ -2.4544077636833492,
+ -2.4540002905632434,
+ -2.453288126259304,
+ -2.453216239161462,
+ -2.452531822179085,
+ -2.4506724180892077,
+ -2.4501939804326898,
+ -2.449331548821729,
+ -2.4487976217686493,
+ -2.447885640705193,
+ -2.447498994535638,
+ -2.4461317034417216,
+ -2.4460796527430135,
+ -2.4459259947925367,
+ -2.4457515351485153,
+ -2.4451889404272196,
+ -2.4446478056366545,
+ -2.444077551483639,
+ -2.44378451903349,
+ -2.4431792994159665,
+ -2.4426933904721864,
+ -2.4423765949101077,
+ -2.441932069031519,
+ -2.4416592307591527,
+ -2.4408853579345915,
+ -2.440856711504786,
+ -2.440743583912274,
+ -2.440605523317005,
+ -2.4396640042439364,
+ -2.4396507574884114,
+ -2.4394108455736054,
+ -2.438132203587926,
+ -2.437975753043149,
+ -2.4376568326578267,
+ -2.435782394677846,
+ -2.435215811861665,
+ -2.434583177550723,
+ -2.4338847793489125,
+ -2.4331887356799378,
+ -2.432712946974745,
+ -2.432652704106692,
+ -2.432522790426656,
+ -2.4323402070800215,
+ -2.432306814620205,
+ -2.4316250609768684,
+ -2.4310885905603956,
+ -2.4310128083650304,
+ -2.4302915318144125,
+ -2.4298527769329823,
+ -2.4294335176879605,
+ -2.4293670843471413,
+ -2.429141197172527,
+ -2.428881740996312,
+ -2.4282974335650755,
+ -2.4282722514599158,
+ -2.427971217223552,
+ -2.4272470529806984,
+ -2.4266297657110756,
+ -2.4266256742803742,
+ -2.4253683304022786,
+ -2.4249595498396768,
+ -2.42469851580353,
+ -2.4241528810722177,
+ -2.424029994610731,
+ -2.4240267823787605,
+ -2.423516565815017,
+ -2.423222780875414,
+ -2.4228090956074175,
+ -2.4214507746333345,
+ -2.4205152249460324,
+ -2.4204532131706324,
+ -2.4199209871516376,
+ -2.4197223803066623,
+ -2.4196817261840677,
+ -2.4193195503526757,
+ -2.419233855532934,
+ -2.418078869254256,
+ -2.417711250997971,
+ -2.4172421163563262,
+ -2.417122718533851,
+ -2.4169027379576944,
+ -2.4162332201482486,
+ -2.4155922243220904,
+ -2.4155489120503852,
+ -2.4153633507355865,
+ -2.415241916538306,
+ -2.4149956007931164,
+ -2.4147722761353916,
+ -2.414122808839295,
+ -2.4132284163113624,
+ -2.412987639815697,
+ -2.4128932381837056,
+ -2.4126954125051383,
+ -2.4111803469777855,
+ -2.4110556176321465,
+ -2.4110103293782723,
+ -2.41062162897645,
+ -2.410612876989774,
+ -2.410408922079444,
+ -2.409882360882225,
+ -2.4076339089521226,
+ -2.4063880928685273,
+ -2.4059894819333687,
+ -2.4059230903837134,
+ -2.4054939886765743,
+ -2.4050667887652857,
+ -2.405026920146115,
+ -2.404959041154589,
+ -2.4040099474501226,
+ -2.403425265959493,
+ -2.4030361193558294,
+ -2.4025776679716313,
+ -2.4016163263537513,
+ -2.401422879762821,
+ -2.401248628685772,
+ -2.4006986254724683,
+ -2.400492046271362,
+ -2.399388443460161,
+ -2.3986702129575614,
+ -2.398032710132682,
+ -2.39742701428114,
+ -2.3967889583265016,
+ -2.39612291799348,
+ -2.396055992541871,
+ -2.394586248516744,
+ -2.3940259791868024,
+ -2.3937279589300147,
+ -2.3927466814595153,
+ -2.391109206083588,
+ -2.389865811740689,
+ -2.3892409100472456,
+ -2.3885419184758856,
+ -2.3881964804657403,
+ -2.3879623084697905,
+ -2.387782431871752,
+ -2.3877062032681775,
+ -2.3876784441102044,
+ -2.3875526268271186,
+ -2.385522183136942,
+ -2.3853828044987315,
+ -2.3847700035619854,
+ -2.3845243078890426,
+ -2.3829633644676984,
+ -2.3825532534860367,
+ -2.3824785919508003,
+ -2.3824370371713157,
+ -2.382036302878129,
+ -2.381848097826991,
+ -2.3813840424597044,
+ -2.381042557672759,
+ -2.3804378028422257,
+ -2.379636598859089,
+ -2.3796332385015697,
+ -2.379423505075588,
+ -2.379009145884124,
+ -2.378295178256283,
+ -2.3776918947336902,
+ -2.377167929959094,
+ -2.376987485876033,
+ -2.3763874205920423,
+ -2.3760546656192507,
+ -2.375175251559755,
+ -2.374837695376391,
+ -2.3745378378281927,
+ -2.373640063031636,
+ -2.3736204398716154,
+ -2.3735702364981317,
+ -2.373540988322569,
+ -2.3733877855153196,
+ -2.3732789070715956,
+ -2.3726176782303225,
+ -2.3719740965589438,
+ -2.371292174596266,
+ -2.3710082960547694,
+ -2.37066459664567,
+ -2.370475518575355,
+ -2.3700618621181135,
+ -2.3698539832368355,
+ -2.3697191888026046,
+ -2.3684692772085882,
+ -2.3679112821831887,
+ -2.3674421837872486,
+ -2.367017981352205,
+ -2.3667734369429003,
+ -2.3665862356775187,
+ -2.3661169930754826,
+ -2.3658872503348514,
+ -2.365213168789256,
+ -2.365203903015114,
+ -2.365190833754708,
+ -2.3650826079557867,
+ -2.3649597449380306,
+ -2.3646927503775346,
+ -2.3642952600979186,
+ -2.363823142374017,
+ -2.36346718772156,
+ -2.3633014590947687,
+ -2.3630458752119226,
+ -2.362647798208479,
+ -2.3624620555972498,
+ -2.362442922545065,
+ -2.362086781645948,
+ -2.3620559741617075,
+ -2.36176103384093,
+ -2.361459669855676,
+ -2.361224110328774,
+ -2.36027434830247,
+ -2.3594450074920776,
+ -2.3592404137526155,
+ -2.358386769756341,
+ -2.3583167598185244,
+ -2.358267478597346,
+ -2.3560147045294615,
+ -2.3556647524257275,
+ -2.3555027765544923,
+ -2.3540475892005803,
+ -2.3540234026055846,
+ -2.3528513979727244,
+ -2.352796214047706,
+ -2.3527821254342154,
+ -2.3526778430062643,
+ -2.3519867214118984,
+ -2.3518695940023346,
+ -2.3512778891441757,
+ -2.349646734100324,
+ -2.3495804834274443,
+ -2.3490327386616974,
+ -2.348262697313608,
+ -2.34783338429561,
+ -2.3476126350664237,
+ -2.347162690229225,
+ -2.347085939939561,
+ -2.346780423707236,
+ -2.346166729664451,
+ -2.3458491442380787,
+ -2.345019378934845,
+ -2.344976500980243,
+ -2.3449517634271397,
+ -2.344684534560219,
+ -2.3445499949599067,
+ -2.3439344854214035,
+ -2.343861714412735,
+ -2.3438539128538878,
+ -2.343811804786816,
+ -2.3433704710104584,
+ -2.342814128404087,
+ -2.3426992173836054,
+ -2.3423384787209263,
+ -2.342282743335664,
+ -2.34096268399034,
+ -2.3401159367179694,
+ -2.339433004759263,
+ -2.3374891833865177,
+ -2.337479428728743,
+ -2.337104533797619,
+ -2.337038423958599,
+ -2.3363094766285455,
+ -2.3361888188253523,
+ -2.3360401291013373,
+ -2.3353219345747096,
+ -2.335309902288077,
+ -2.3352050205392203,
+ -2.3343534696953685,
+ -2.3342518370994374,
+ -2.333245160717433,
+ -2.3321352833631326,
+ -2.3312398509699874,
+ -2.3302277810569088,
+ -2.3300436440675463,
+ -2.3296155731393435,
+ -2.3285466657654723,
+ -2.3282548102088145,
+ -2.328229523220804,
+ -2.328205141288948,
+ -2.327708182840755,
+ -2.3273145246949585,
+ -2.326976553771188,
+ -2.3268854377626536,
+ -2.3263477267606913,
+ -2.3260586432278516,
+ -2.3253110780709276,
+ -2.325035327967096,
+ -2.3247065658743638,
+ -2.3242375854717516,
+ -2.323733543853757,
+ -2.323716636817049,
+ -2.322416907820914,
+ -2.3222203348969166,
+ -2.3220567733283595,
+ -2.321894172273183,
+ -2.3216354137311495,
+ -2.3200695761922523,
+ -2.319418684649874,
+ -2.3185761506536493,
+ -2.317820198618149,
+ -2.3178195024162793,
+ -2.317252348525346,
+ -2.317229520416251,
+ -2.3171272436996406,
+ -2.316981844473823,
+ -2.316878388783628,
+ -2.3164388744542785,
+ -2.3163679984255436,
+ -2.3163413821023617,
+ -2.316314938177016,
+ -2.316313312802884,
+ -2.3157846732610183,
+ -2.315596582250585,
+ -2.314665603681001,
+ -2.3141977033609393,
+ -2.314103379408007,
+ -2.3140785353804025,
+ -2.3135693279121994,
+ -2.3133668442290656,
+ -2.312418806596855,
+ -2.3114835020142017,
+ ...]
+</code></pre><ul>
+<li>进行unique的操作，速度差别接近20倍</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">values = np.array([<span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>])</div><div class="line">np.in1d(values, [<span class="number">2</span>, <span class="number">3</span> ,<span class="number">6</span>])</div></pre></td></tr></table></figure>
+<pre><code>array([ True, False, False,  True,  True, False,  True])
+</code></pre><h2 id="用于数组的文件输入输出"><a href="#用于数组的文件输入输出" class="headerlink" title="用于数组的文件输入输出"></a>用于数组的文件输入输出</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr = np.arange(<span class="number">10</span>)</div><div class="line">np.save(<span class="string">'some_array'</span>, arr)</div></pre></td></tr></table></figure>
+<ul>
+<li>存储格式为npy</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.load(<span class="string">'some_array.npy'</span>)</div></pre></td></tr></table></figure>
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.savez(<span class="string">'array_archive.npz'</span>, a = arr, b = arr)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arch = np.load(<span class="string">'array_archive.npz'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arch[<span class="string">'b'</span>]</div></pre></td></tr></table></figure>
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.savez_compressed(<span class="string">'array_compressed.npz'</span>, a = arr, b = arr)</div></pre></td></tr></table></figure>
+<ul>
+<li>压缩后的小将近一半</li>
+</ul>
+<h2 id="一些矩阵的运算"><a href="#一些矩阵的运算" class="headerlink" title="一些矩阵的运算"></a>一些矩阵的运算</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x = np.array([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>], [<span class="number">4.</span>, <span class="number">5.</span>, <span class="number">6.</span>]])</div><div class="line">y = np.array([[<span class="number">6.</span>, <span class="number">23.</span>], [<span class="number">-1</span>, <span class="number">7</span>], [<span class="number">8</span>, <span class="number">9</span>]])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x.dot(y)</div></pre></td></tr></table></figure>
+<pre><code>array([[ 28.,  64.],
+       [ 67., 181.]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.dot(x, y)</div></pre></td></tr></table></figure>
+<pre><code>array([[ 28.,  64.],
+       [ 67., 181.]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x @ y</div></pre></td></tr></table></figure>
+<pre><code>array([[ 28.,  64.],
+       [ 67., 181.]])
+</code></pre><ul>
+<li>三种方式都是可行的</li>
+</ul>
+<h3 id="存在于-numpy-linalg-中的一些标准的矩阵运算"><a href="#存在于-numpy-linalg-中的一些标准的矩阵运算" class="headerlink" title="存在于 numpy.linalg 中的一些标准的矩阵运算"></a>存在于 numpy.linalg 中的一些标准的矩阵运算</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> inv, qr</div><div class="line">X = np.random.randn(<span class="number">5</span>, <span class="number">5</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">X</div></pre></td></tr></table></figure>
+<pre><code>array([[-0.52040371,  0.66953373, -1.00518094,  0.4757553 , -0.00952959],
+       [-1.58088132,  0.1702305 ,  0.62765644,  1.64025911, -0.0271393 ],
+       [-0.50746955, -1.44766304, -0.07023786,  0.15706871, -0.75494738],
+       [ 0.44193013, -0.75306467, -1.19664554, -0.69217567, -1.32801768],
+       [ 1.46202826, -2.03729022,  0.0352588 ,  0.0349705 , -1.36247616]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mat = X.T @ X</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mat</div></pre></td></tr></table></figure>
+<pre><code>array([[ 5.36035999, -3.19427499, -0.91079124, -3.17511282, -2.14789363],
+       [-3.19427499,  7.29063995,  0.36484355,  0.82038178,  4.85775165],
+       [-0.91079124,  0.36484355,  2.84247842,  1.36978882,  1.58669786],
+       [-3.17511282,  0.82038178,  1.36978882,  3.42179373,  0.70394723],
+       [-2.14789363,  4.85775165,  1.58669786,  0.70394723,  4.19074515]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mat.dot(inv(mat))</div></pre></td></tr></table></figure>
+<pre><code>array([[ 1.00000000e+00, -1.87328942e-16,  1.90880150e-16,
+        -3.32224269e-16,  5.62016610e-16],
+       [-1.35450770e-16,  1.00000000e+00,  6.11259429e-16,
+         4.57019028e-17,  1.56530762e-15],
+       [ 8.61192740e-17,  4.35279839e-17,  1.00000000e+00,
+         1.93205865e-16,  7.01530125e-16],
+       [ 3.12973329e-16,  1.25054059e-16, -9.12989000e-16,
+         1.00000000e+00,  6.50801036e-17],
+       [ 3.60695088e-18,  8.60623357e-16,  6.32271091e-16,
+        -3.32298412e-16,  1.00000000e+00]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">q, r = qr(mat)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">r</div></pre></td></tr></table></figure>
+<pre><code>array([[-7.37978191,  7.28772316,  2.22144455,  4.50751116,  5.38119084],
+       [ 0.        , -5.88640833,  0.12765311,  1.69877191, -4.17477889],
+       [ 0.        ,  0.        , -2.912929  , -0.9127644 , -1.52127578],
+       [ 0.        ,  0.        ,  0.        , -0.89346598,  0.2407085 ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.1687621 ]])
+</code></pre><ul>
+<li>inv 计算方阵的逆</li>
+<li>qr 进行qr分解<br><img src="/2019/04/06/NumPy基础/attachment:image.png" alt="image.png"></li>
+</ul>
+<h2 id="伪随机数的生成"><a href="#伪随机数的生成" class="headerlink" title="伪随机数的生成"></a>伪随机数的生成</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samples = np.random.normal(size = (<span class="number">4</span>, <span class="number">4</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samples</div></pre></td></tr></table></figure>
+<pre><code>array([[-1.58513763, -0.8702764 , -1.46213942,  0.02212559],
+       [-1.46078329,  1.05921222,  0.99344878,  0.05666005],
+       [ 2.11641989, -1.95193871,  0.95014528,  0.17150136],
+       [-0.88192427, -0.4883696 , -1.06084378,  0.72365892]])
+</code></pre><ul>
+<li>对python内置的random函数进行了补充，增加了一些用于高效生成多种概率分布的样本值的函数。</li>
+<li>例如：上例生成标准的正态分布</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> normalvariate</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">N = <span class="number">1000000</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">% %timeit samples = [normalvariate(<span class="number">0</span>, <span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</div></pre></td></tr></table></figure>
+<pre><code>781 ms ± 37.9 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">% timeit np.random.normal(size = N)</div></pre></td></tr></table></figure>
+<pre><code>29.1 ms ± 494 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre><ul>
+<li>可以生成各种概率分布下的随机函数</li>
+</ul>
+<h2 id="随机漫步"><a href="#随机漫步" class="headerlink" title="随机漫步"></a>随机漫步</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line">position = <span class="number">0</span></div><div class="line">walk = [position]</div><div class="line">steps = <span class="number">1000</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(steps):</div><div class="line">    step = <span class="number">1</span> <span class="keyword">if</span> random.randint(<span class="number">0</span>, <span class="number">1</span>) <span class="keyword">else</span> <span class="number">-1</span></div><div class="line">    position += step</div><div class="line">    walk.append(position)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">plt.plot(walk[:<span class="number">1000</span>])</div></pre></td></tr></table></figure>
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x2ee22d3d0f0&gt;]
+</code></pre><p><img src="/2019/04/06/NumPy基础/output_119_1.png" alt="png"></p>
+<ul>
+<li>上面给出了python自带模块的实现</li>
+<li>下面给出numpy的实现方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nsteps = <span class="number">1000</span></div><div class="line">nwalks = <span class="number">5000</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">draws= np.random.randint(<span class="number">0</span>, <span class="number">2</span>, size = (nwalks, nsteps)) <span class="comment"># 0,1</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">draws</div></pre></td></tr></table></figure>
+<pre><code>array([[1, 0, 0, ..., 0, 0, 0],
+       [1, 0, 0, ..., 0, 0, 0],
+       [0, 1, 1, ..., 0, 0, 0],
+       ...,
+       [1, 0, 0, ..., 0, 0, 0],
+       [1, 1, 1, ..., 0, 1, 0],
+       [1, 1, 0, ..., 0, 1, 0]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">steps = np.where(draws &gt; <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">steps</div></pre></td></tr></table></figure>
+<pre><code>array([[ 1, -1, -1, ..., -1, -1, -1],
+       [ 1, -1, -1, ..., -1, -1, -1],
+       [-1,  1,  1, ..., -1, -1, -1],
+       ...,
+       [ 1, -1, -1, ..., -1, -1, -1],
+       [ 1,  1,  1, ..., -1,  1, -1],
+       [ 1,  1, -1, ..., -1,  1, -1]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">walks = steps.cumsum(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">walks</div></pre></td></tr></table></figure>
+<pre><code>array([[  1,   0,  -1, ..., -26, -27, -28],
+       [  1,   0,  -1, ..., -32, -33, -34],
+       [ -1,   0,   1, ..., -54, -55, -56],
+       ...,
+       [  1,   0,  -1, ..., -36, -37, -38],
+       [  1,   2,   3, ..., -40, -39, -40],
+       [  1,   2,   1, ...,  42,  43,  42]], dtype=int32)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">walks.max()</div></pre></td></tr></table></figure>
+<pre><code>121
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">walks.min()</div></pre></td></tr></table></figure>
+<pre><code>-120
+</code></pre><ul>
+<li>计算 + -30的最小穿越时间</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hits30 = （np.abs(walks) &gt;= <span class="number">30</span>）.any(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<pre><code>  File &quot;&lt;ipython-input-156-0b12c9d0fcee&gt;&quot;, line 1
+    hits30 = （np.abs(walks) &gt;= 30）.any(1)
+               ^
+SyntaxError: invalid character in identifier
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hits30 = (np.abs(walks) &gt;= <span class="number">30</span>).any(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hits30</div></pre></td></tr></table></figure>
+<pre><code>array([False,  True,  True, ...,  True,  True,  True])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hits30.sum()</div></pre></td></tr></table></figure>
+<pre><code>3363
+</code></pre><p>共有3363个值达到了要求</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">crossing_times = (np.abs(walks[hits30]) &gt;= <span class="number">30</span>).argmax(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">crossing_times</div></pre></td></tr></table></figure>
+<pre><code>array([379, 459, 451, ..., 249, 629, 115], dtype=int64)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">crossing_times.mean()</div></pre></td></tr></table></figure>
+<pre><code>502.8661909009813
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/04/06/NumPy基础/">numpy入门</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">zxc</a></p>
+        <p><span>发布时间:</span>2019-04-06, 22:58:26</p>
+        <p><span>最后更新:</span>2019-04-06, 18:03:08</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/06/NumPy基础/" title="numpy入门">https://cprocc.github.io/2019/04/06/NumPy基础/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://cprocc.github.io/2019/04/06/NumPy基础/　　作者: zxc" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/04/06/pandas入门/">
+                    pandas入门
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/04/06/pyHLevel/">
+                    python_基础语法
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数学和统计方法"><span class="toc-number">1.</span> <span class="toc-text">数学和统计方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#唯一化以及其他的集合逻辑"><span class="toc-number">1.1.</span> <span class="toc-text">唯一化以及其他的集合逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用于数组的文件输入输出"><span class="toc-number">2.</span> <span class="toc-text">用于数组的文件输入输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些矩阵的运算"><span class="toc-number">3.</span> <span class="toc-text">一些矩阵的运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存在于-numpy-linalg-中的一些标准的矩阵运算"><span class="toc-number">3.1.</span> <span class="toc-text">存在于 numpy.linalg 中的一些标准的矩阵运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪随机数的生成"><span class="toc-number">4.</span> <span class="toc-text">伪随机数的生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机漫步"><span class="toc-number">5.</span> <span class="toc-text">随机漫步</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"numpy入门　| zxc's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/04/06/pandas入门/" title="上一篇: pandas入门">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/04/06/pyHLevel/" title="下一篇: python_基础语法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/06/pandas入门/">pandas入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/06/NumPy基础/">numpy入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/06/pyHLevel/">python_基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/05/leet-code回溯问题/">Leetcode回溯问题39,40,46,47</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/13/str-to-num/">python</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/21/Nutch1.1搭建/">Windows下Nutch配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/21/Nutch2.3.1搭建/">Ubuntu下Nutch配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/master retest/">研究生复试（又是一篇迟到的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/03/构造数据抽象/">计算机程序构造(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/构造过程抽象/">计算机程序构造(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/2017.08-2017.12/">考了个研（5个月没更博客了</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/24/pyhton_cling/">python_cling</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/Git_cmd/">Git cmd</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/spring_ioc/">spring_ioc</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/hexo搭建博客时博文中添加图片/">hexo写博文时插入本地图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/blog_hexo+github/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/cookie&session/">cookie&session</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/maven/">maven用途</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/jsp中的内置对象/">JSP中的内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/JSP的request对象/">JSP中的request</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/http超文本传输协议/">HTTP协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/hello/">hello</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2019 zxc
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
