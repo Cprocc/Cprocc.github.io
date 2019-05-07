@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="leetcode," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="摘要对回溯算法做了一个简单的总结。主要的方法都是对一棵答案树进行深度搜索，进行回溯。">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-BackTracking算法例题">
+<meta property="og:url" content="https://cprocc.github.io/2019/05/07/BackTracking/index.html">
+<meta property="og:site_name" content="ZXC&#39;Blog">
+<meta property="og:description" content="摘要对回溯算法做了一个简单的总结。主要的方法都是对一棵答案树进行深度搜索，进行回溯。">
+<meta property="og:updated_time" content="2019-05-07T14:34:47.707Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode-BackTracking算法例题">
+<meta name="twitter:description" content="摘要对回溯算法做了一个简单的总结。主要的方法都是对一棵答案树进行深度搜索，进行回溯。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://cprocc.github.io/2019/05/07/BackTracking/"/>
+
+
+
+
+
+  <title>leetcode-BackTracking算法例题 | ZXC'Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZXC'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">来都来了</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cprocc.github.io/2019/05/07/BackTracking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZXC'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">leetcode-BackTracking算法例题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T21:28:37+08:00">
+                2019-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/python/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/07/BackTracking/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/05/07/BackTracking/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>摘要<br>对回溯算法做了一个简单的总结。主要的方法都是对一棵答案树进行深度搜索，进行回溯。<br><a id="more"></a></p>
+<h1 id="算法系列1-回溯算法"><a href="#算法系列1-回溯算法" class="headerlink" title="算法系列1. 回溯算法"></a>算法系列1. 回溯算法</h1><h3 id="leetcode-22：-Generator-Parentheses"><a href="#leetcode-22：-Generator-Parentheses" class="headerlink" title="leetcode-22： Generator Parentheses"></a>leetcode-22： Generator Parentheses</h3><ul>
+<li>给出n，返回可能存在的所有的括号匹配个数</li>
+<li>如1:()</li>
+<li>如2 ：(()),()() </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generateParenthesis</span><span class="params">(self, n: int)</span> -&gt; List[str]:</span></div><div class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> []</div><div class="line">        </div><div class="line">        ans = []</div><div class="line">        self.helper(n, n, <span class="string">''</span>, ans)</div><div class="line">        <span class="keyword">return</span> ans</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(self, l, r, item, ans)</span>:</span></div><div class="line"><span class="comment">#        可用的左括号小于可用的右括号</span></div><div class="line">        <span class="keyword">if</span> r&lt;l:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">if</span> l == <span class="number">0</span> <span class="keyword">and</span> r == <span class="number">0</span>:</div><div class="line">            ans.append(item)</div><div class="line">        <span class="keyword">if</span> l &gt; <span class="number">0</span>:</div><div class="line">            self.helper(l<span class="number">-1</span>, r, item + <span class="string">'('</span>, ans)</div><div class="line">        <span class="keyword">if</span> r &gt; <span class="number">0</span>:</div><div class="line">            self.helper(l, r<span class="number">-1</span>, item + <span class="string">')'</span>, ans)</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="leetcode-39：Combination-Sum"><a href="#leetcode-39：Combination-Sum" class="headerlink" title="leetcode-39：Combination Sum"></a>leetcode-39：Combination Sum</h3><ul>
+<li>从数组中挑选元素（可重复挑选，列出和为Target的所有数组组合</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates: List[int], target: int)</span> -&gt; List[List[int]]:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type candidates: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        res = []</div><div class="line">        li = []</div><div class="line">        candidates.sort()</div><div class="line">        <span class="keyword">if</span> len(candidates) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> res</div><div class="line"></div><div class="line">        self.combinationSumHelp(res, li, candidates, target, <span class="number">0</span>)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSumHelp</span><span class="params">(self, res, li, candidates, target, start)</span>:</span></div><div class="line">        <span class="keyword">if</span> target &lt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> target == <span class="number">0</span>:</div><div class="line">            temp = li.copy()</div><div class="line">            res.append(temp)</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start, len(candidates)):</div><div class="line">            <span class="keyword">if</span> target-candidates[i] &lt; <span class="number">0</span>:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            li.append(candidates[i])</div><div class="line">            self.combinationSumHelp(res, li, candidates, target-candidates[i], i)</div><div class="line">            li.pop()</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="leetcode-40-Combination-Sum-2"><a href="#leetcode-40-Combination-Sum-2" class="headerlink" title="leetcode-40 Combination Sum 2"></a>leetcode-40 Combination Sum 2</h3><ul>
+<li><p>题目描述：</p>
+<p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code> where the candidate numbers sums to <code>target</code>.</p>
+<p>Each number in <code>candidates</code> may only be used <strong>once</strong> in the combination.</p>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>All numbers (including <code>target</code>) will be positive integers.</li>
+<li>The solution set must not contain duplicate combinations.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum2</span><span class="params">(self, candidates, target)</span>:</span></div><div class="line">        ans = []</div><div class="line">        cur = []</div><div class="line">        candidates.sort()</div><div class="line">        <span class="keyword">if</span> len(candidates) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> list(ans)</div><div class="line"></div><div class="line">        self.dfs(<span class="number">0</span>, target, candidates, ans, cur)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> ans</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, s, target, candidates, ans, cur)</span>:</span></div><div class="line">        <span class="keyword">if</span> target &lt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> target == <span class="number">0</span>:</div><div class="line">            temp = cur.copy()</div><div class="line">            ans.append(temp)</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(s, len(candidates)):</div><div class="line">            <span class="keyword">if</span> target - candidates[i] &lt; <span class="number">0</span>:</div><div class="line">                <span class="keyword">return</span></div><div class="line">            <span class="keyword">if</span> i &gt; s <span class="keyword">and</span> candidates[i] == candidates[i - <span class="number">1</span>]:</div><div class="line">                <span class="keyword">continue</span></div><div class="line">            cur.append(candidates[i])</div><div class="line">            self.dfs(i + <span class="number">1</span>, target - candidates[i], candidates, ans, cur)</div><div class="line">            cur.pop()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    Sol = Solution()</div><div class="line">    print(Sol.combinationSum2([<span class="number">10</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>], <span class="number">8</span>))</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="leetcode-46-Permutations-全排列"><a href="#leetcode-46-Permutations-全排列" class="headerlink" title="leetcode-46 Permutations(全排列)"></a>leetcode-46 Permutations(全排列)</h3><ul>
+<li><p>题目：</p>
+<p>给出一个无重复的数组，列出他的全排列</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permute</span><span class="params">(self, nums: List[int])</span> -&gt; List[List[int]]:</span></div><div class="line">        ans = []</div><div class="line">        cur = []</div><div class="line">        used = [<span class="number">0</span>] * len(nums)</div><div class="line">        self.dfs(ans, cur, used, nums)</div><div class="line">        <span class="keyword">return</span> ans</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, ans, cur, used, nums)</span>:</span></div><div class="line">        <span class="keyword">if</span> len(cur) == len(nums):</div><div class="line">            temp = cur.copy()</div><div class="line">            ans.append(temp)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        </div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</div><div class="line">            <span class="keyword">if</span> used[i] != <span class="number">1</span>:</div><div class="line">                cur.append(nums[i])</div><div class="line">                used[i] = <span class="number">1</span></div><div class="line">                self.dfs(ans, cur, used, nums)</div><div class="line">                cur.pop()</div><div class="line">                used[i] = <span class="number">0</span></div></pre></td></tr></table></figure>
+<hr>
+<h3 id="leetcode-47-Permutations-2-有重复数出现的全排列"><a href="#leetcode-47-Permutations-2-有重复数出现的全排列" class="headerlink" title="leetcode-47 Permutations 2(有重复数出现的全排列)"></a>leetcode-47 Permutations 2(有重复数出现的全排列)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permuteUnique</span><span class="params">(self, nums)</span>:</span></div><div class="line">        ans = []</div><div class="line">        cur = []</div><div class="line">        nums.sort()</div><div class="line">        print(nums)</div><div class="line">        used = [<span class="number">0</span>] * len(nums)</div><div class="line">        self.dfs(ans, cur, used, nums)</div><div class="line">        <span class="keyword">return</span> ans</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, ans, cur, used, nums)</span>:</span></div><div class="line">        <span class="keyword">if</span> len(cur) == len(nums):</div><div class="line">            temp = cur.copy()</div><div class="line">            ans.append(temp)</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</div><div class="line">            <span class="comment"># 进行剪枝，经过排序，重复的元素总是相连的。重复的只留一种情况。</span></div><div class="line">            <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> nums[i] == nums[i - <span class="number">1</span>] <span class="keyword">and</span> used[i<span class="number">-1</span>] == <span class="number">1</span>:</div><div class="line">                <span class="keyword">continue</span></div><div class="line">            <span class="keyword">if</span> used[i] != <span class="number">1</span>:</div><div class="line">                cur.append(nums[i])</div><div class="line">                used[i] = <span class="number">1</span></div><div class="line">                self.dfs(ans, cur, used, nums)</div><div class="line">                cur.pop()</div><div class="line">                used[i] = <span class="number">0</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    Sol = Solution()</div><div class="line">    print(Sol.permuteUnique([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>]))</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="LeetCode-60-Permutation-Sequence"><a href="#LeetCode-60-Permutation-Sequence" class="headerlink" title="LeetCode-60 Permutation Sequence"></a>LeetCode-60 Permutation Sequence</h3><ul>
+<li><p>题目描述</p>
+<p>The set <code>[1,2,3,...,*n*]</code> contains a total of <em>n</em>! unique permutations.</p>
+<p>By listing and labeling all of the permutations in order, we get the following sequence for <em>n</em> = 3:</p>
+<ol>
+<li><code>&quot;123&quot;</code></li>
+<li><code>&quot;132&quot;</code></li>
+<li><code>&quot;213&quot;</code></li>
+<li><code>&quot;231&quot;</code></li>
+<li><code>&quot;312&quot;</code></li>
+<li><code>&quot;321&quot;</code></li>
+</ol>
+<p>Given <em>n</em> and <em>k</em>, return the <em>k</em>th permutation sequence.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>Given <em>n</em> will be between 1 and 9 inclusive.</li>
+<li>Given <em>k</em> will be between 1 and <em>n</em>! inclusive.</li>
+</ul>
+</li>
+<li><p>思路: 如果用找出所有全排列的方法，然后再数是第几个。百分之99.99都是要超时的。</p>
+</li>
+<li>考虑将问题的规模缩小：用了循环的方式，因为已知调用的层数是n，32ms，超过了所有python提交</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPermutation</span><span class="params">(self, n, k)</span>:</span></div><div class="line">        <span class="comment"># 首先我们的基础元素序列是</span></div><div class="line">        ans = []</div><div class="line">        nums = [str(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n+<span class="number">1</span>)]</div><div class="line">        <span class="comment"># 我们确定第一个元素应该在的位置:</span></div><div class="line">        res = <span class="number">1</span></div><div class="line">        depart = n</div><div class="line">        <span class="comment"># 计算n的阶乘</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n+<span class="number">1</span>):</div><div class="line">            res *= i</div><div class="line"></div><div class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(n):</div><div class="line"></div><div class="line">            res = res/depart</div><div class="line"></div><div class="line">            depart = depart<span class="number">-1</span></div><div class="line"></div><div class="line">            pos = int(k / res) <span class="comment"># pos的取值范围是0,n-1</span></div><div class="line">            <span class="keyword">if</span> k % res == <span class="number">0</span>:</div><div class="line">                pos -= <span class="number">1</span></div><div class="line">                k = res</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                k = k % res</div><div class="line">            ans.append(nums[pos])</div><div class="line">            nums = nums[:pos] + nums[pos+<span class="number">1</span>:]</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="string">''</span>.join(ans)</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="leetcode-77-C-N-k"><a href="#leetcode-77-C-N-k" class="headerlink" title="leetcode-77 C(N,k)"></a>leetcode-77 C(N,k)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combine</span><span class="params">(self, n, k)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type n: int</div><div class="line">        :type k: int</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        ans = []</div><div class="line">        temp = []</div><div class="line">        self.dfs(<span class="number">0</span>, n, k, temp, ans)</div><div class="line">        <span class="keyword">return</span> ans</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, i, n, k, temp, ans)</span>:</span></div><div class="line">        <span class="keyword">if</span> n - i + len(temp) &lt; k:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">if</span> len(temp) == k:</div><div class="line">            t = temp.copy()</div><div class="line">            ans.append(t)</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, n + <span class="number">1</span>):</div><div class="line">            temp.append(j)</div><div class="line">            self.dfs(j, n, k, temp, ans)</div><div class="line">            temp.pop()</div><div class="line"></div><div class="line">        <span class="keyword">return</span></div></pre></td></tr></table></figure>
+<hr>
+<h3 id="leetcode-78-Subsets"><a href="#leetcode-78-Subsets" class="headerlink" title="leetcode-78 Subsets"></a>leetcode-78 Subsets</h3><ul>
+<li>给出一个不重复集合的所有子集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="comment"># 用一个n位的二进制数，表示某位是否被取到，共2^n个结果</span></div><div class="line">     <span class="comment"># def subsets(self, nums):</span></div><div class="line">     <span class="comment">#    ans = []</span></div><div class="line">     <span class="comment">#    for s in range(1 &lt;&lt; len(nums)):</span></div><div class="line">     <span class="comment">#        cur = []</span></div><div class="line">     <span class="comment">#        for i in range(len(nums)):</span></div><div class="line">     <span class="comment">#            if s &amp; (1 &lt;&lt; i):</span></div><div class="line">     <span class="comment">#                cur.append(nums[i])</span></div><div class="line">     <span class="comment">#        ans.append(cur)</span></div><div class="line">     <span class="comment">#    return ans</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsets</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        ans = []</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(nums)+<span class="number">1</span>):</div><div class="line">            self.dfs(ans, nums, i, <span class="number">0</span>, [])</div><div class="line"></div><div class="line">        <span class="keyword">return</span> ans</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, ans, nums, n, s, cur)</span>:</span></div><div class="line">        <span class="keyword">if</span> len(cur) == n:</div><div class="line">            temp = cur.copy()</div><div class="line">            ans.append(temp)</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(s, len(nums)):</div><div class="line">            cur.append(nums[i])</div><div class="line">            self.dfs(ans, nums, n, i+<span class="number">1</span>, cur)</div><div class="line">            cur.pop()</div><div class="line"></div><div class="line"></div><div class="line">Sol = Solution()</div><div class="line">print(Sol.subsets([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="LeetCode-90：Subsets-2-重复集合的所有子集"><a href="#LeetCode-90：Subsets-2-重复集合的所有子集" class="headerlink" title="LeetCode-90：Subsets 2 重复集合的所有子集"></a>LeetCode-90：Subsets 2 重复集合的所有子集</h3><ul>
+<li><p>题目描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">给出这样的可能存在重复的元素的集合[1,2,2]，给出所有的不重复的子集</div></pre></td></tr></table></figure>
+</li>
+<li><p>思路：</p>
+<p>首先这是一个找子集的问题，可以转化为找Combination的题目。然后我们从做一个循环，遍历从0-len(nums)所有的深度，得到的就是所有的子集。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 可以优化，因为子集从0到n个的生成过程中可以动态的添加,有冗余的操作</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsetsWithDup</span><span class="params">(self, nums: List[int])</span> -&gt; List[List[int]]:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        nums.sort()</div><div class="line">        ans = []</div><div class="line">        used = [<span class="number">0</span>]*len(nums)</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(nums)+<span class="number">1</span>):</div><div class="line">            self.dfs(ans, nums, i, <span class="number">0</span>, [])</div><div class="line"></div><div class="line">        <span class="keyword">return</span> ans</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, ans, nums, n, s, cur)</span>:</span></div><div class="line">        <span class="keyword">if</span> len(cur) == n:</div><div class="line">            temp = cur.copy()</div><div class="line">            ans.append(temp)</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(s, len(nums)):</div><div class="line">            <span class="comment"># 已经完成过的i分支， 在之后不再做</span></div><div class="line">            <span class="keyword">if</span> i &gt; s <span class="keyword">and</span> nums[i] == nums[i<span class="number">-1</span>]:</div><div class="line">                <span class="keyword">continue</span></div><div class="line">            cur.append(nums[i])</div><div class="line">            self.dfs(ans, nums, n, i+<span class="number">1</span>, cur)</div><div class="line">            cur.pop()</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="leetcode-216-Combination-Sum-3"><a href="#leetcode-216-Combination-Sum-3" class="headerlink" title="leetcode-216:Combination Sum 3"></a>leetcode-216:Combination Sum 3</h3><ul>
+<li><p>题目描述：</p>
+<p>Find all possible combinations of <strong><em>k</em></strong> numbers that add up to a number <strong><em>n</em></strong>, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum3</span><span class="params">(self, k, n)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type k: int</div><div class="line">        :type n: int</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        ans = []</div><div class="line">        cur = []</div><div class="line">        self.dfs(k, n, <span class="number">1</span>, cur, ans)</div><div class="line">        <span class="keyword">return</span> ans</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, k, n, s, cur, ans)</span>:</span></div><div class="line">        <span class="keyword">if</span> k == <span class="number">0</span>:</div><div class="line">            <span class="keyword">if</span> n == <span class="number">0</span>:</div><div class="line">                temp = cur.copy()</div><div class="line">                ans.append(temp)</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(s, <span class="number">10</span>):</div><div class="line">            <span class="keyword">if</span> i &gt; n:</div><div class="line">                <span class="keyword">return</span></div><div class="line">            cur.append(i)</div><div class="line">            self.dfs(k<span class="number">-1</span>, n-i, i+<span class="number">1</span>, cur, ans)</div><div class="line">            cur.pop()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    Sol = Solution()</div><div class="line">    print(Sol.combinationSum3(<span class="number">3</span>, <span class="number">9</span>))</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="leetcode-784-：Letter-Case-Permutation"><a href="#leetcode-784-：Letter-Case-Permutation" class="headerlink" title="leetcode-784 ：Letter Case Permutation"></a>leetcode-784 ：Letter Case Permutation</h3><ul>
+<li><p>题目描述：</p>
+<p>Given a string S, we can transform every letter individually to be lowercase or uppercase to create another string.  Return a list of all possible strings we could create.</p>
+</li>
+<li><p>S will consist only of letters or digits</p>
+</li>
+<li><p>S will be a string with length between 1 and 12</p>
+</li>
+<li><p>Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: S = &quot;a1b2&quot;</div><div class="line">Output: [&quot;a1b2&quot;, &quot;a1B2&quot;, &quot;A1b2&quot;, &quot;A1B2&quot;]</div></pre></td></tr></table></figure>
+</li>
+<li><p>解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">letterCasePermutation</span><span class="params">(S)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    :type S: str</div><div class="line">    :rtype: List[str]</div><div class="line">    """</div><div class="line">    res = []</div><div class="line">    S = list(S)</div><div class="line">    backtrack(S, <span class="number">0</span>, res)</div><div class="line">    <span class="keyword">return</span> res</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtrack</span><span class="params">(S, i, res)</span>:</span></div><div class="line">    <span class="keyword">if</span> i == len(S):</div><div class="line">        temp = <span class="string">''</span>.join(S)</div><div class="line">        res.append(temp)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="comment"># 直接向后移动一位就是其中的一个分支  </span></div><div class="line">    backtrack(S, i+<span class="number">1</span>, res)</div><div class="line">    <span class="keyword">if</span> S[i].isalpha():</div><div class="line">        <span class="keyword">if</span> S[i].islower():</div><div class="line">            S[i] = S[i].upper()</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            S[i] = S[i].lower()</div><div class="line">        backtrack(S, i+<span class="number">1</span>, res)</div><div class="line">        <span class="keyword">if</span> S[i].islower():</div><div class="line">            S[i] = S[i].upper()</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            S[i] = S[i].lower()</div></pre></td></tr></table></figure>
+</li>
+<li><p>整理思路：重点在于回调函数</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/07/contest131/" rel="next" title="leetcode-Contest-131">
+                <i class="fa fa-chevron-left"></i> leetcode-Contest-131
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zxc</p>
+              <p class="site-description motion-element" itemprop="description">春服既成 凤兮舞雩</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/cprocc" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法系列1-回溯算法"><span class="nav-number">1.</span> <span class="nav-text">算法系列1. 回溯算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-22：-Generator-Parentheses"><span class="nav-number">1.0.1.</span> <span class="nav-text">leetcode-22： Generator Parentheses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-39：Combination-Sum"><span class="nav-number">1.0.2.</span> <span class="nav-text">leetcode-39：Combination Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-40-Combination-Sum-2"><span class="nav-number">1.0.3.</span> <span class="nav-text">leetcode-40 Combination Sum 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-46-Permutations-全排列"><span class="nav-number">1.0.4.</span> <span class="nav-text">leetcode-46 Permutations(全排列)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-47-Permutations-2-有重复数出现的全排列"><span class="nav-number">1.0.5.</span> <span class="nav-text">leetcode-47 Permutations 2(有重复数出现的全排列)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LeetCode-60-Permutation-Sequence"><span class="nav-number">1.0.6.</span> <span class="nav-text">LeetCode-60 Permutation Sequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-77-C-N-k"><span class="nav-number">1.0.7.</span> <span class="nav-text">leetcode-77 C(N,k)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-78-Subsets"><span class="nav-number">1.0.8.</span> <span class="nav-text">leetcode-78 Subsets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LeetCode-90：Subsets-2-重复集合的所有子集"><span class="nav-number">1.0.9.</span> <span class="nav-text">LeetCode-90：Subsets 2 重复集合的所有子集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-216-Combination-Sum-3"><span class="nav-number">1.0.10.</span> <span class="nav-text">leetcode-216:Combination Sum 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-784-：Letter-Case-Permutation"><span class="nav-number">1.0.11.</span> <span class="nav-text">leetcode-784 ：Letter Case Permutation</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-cprocc-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://cprocc.github.io/2019/05/07/BackTracking/';
+          this.page.identifier = '2019/05/07/BackTracking/';
+          this.page.title = 'leetcode-BackTracking算法例题';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-cprocc-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
