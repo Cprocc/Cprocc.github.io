@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,Kaggle,DataScience,Logistics Regression," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="摘要一个简单的数据判别例子">
+<meta name="keywords" content="python,Kaggle,DataScience,Logistics Regression">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo+github搭建博客">
+<meta property="og:url" content="https://cprocc.github.io/2019/05/13/heartDisease/index.html">
+<meta property="og:site_name" content="ZXC&#39;Blog">
+<meta property="og:description" content="摘要一个简单的数据判别例子">
+<meta property="og:image" content="https://cprocc.github.io/2019/05/13/heartDisease/output_7_1.png">
+<meta property="og:image" content="https://cprocc.github.io/2019/05/13/heartDisease/output_8_1.png">
+<meta property="og:image" content="https://cprocc.github.io/2019/05/13/heartDisease/output_9_0.png">
+<meta property="og:image" content="https://cprocc.github.io/2019/05/13/heartDisease/output_19_0.png">
+<meta property="og:image" content="https://cprocc.github.io/2019/05/13/heartDisease/output_23_0.png">
+<meta property="og:updated_time" content="2019-05-13T13:22:36.468Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo+github搭建博客">
+<meta name="twitter:description" content="摘要一个简单的数据判别例子">
+<meta name="twitter:image" content="https://cprocc.github.io/2019/05/13/heartDisease/output_7_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://cprocc.github.io/2019/05/13/heartDisease/"/>
+
+
+
+
+
+  <title>hexo+github搭建博客 | ZXC'Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZXC'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">来都来了</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cprocc.github.io/2019/05/13/heartDisease/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZXC'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo+github搭建博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T14:38:15+08:00">
+                2019-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/DateScience/" itemprop="url" rel="index">
+                    <span itemprop="name">DateScience</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/13/heartDisease/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/05/13/heartDisease/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>摘要<br>一个简单的数据判别例子<br><a id="more"></a><br>正文：</p>
+<h2 id="逻辑回归-来自Kaggle"><a href="#逻辑回归-来自Kaggle" class="headerlink" title="逻辑回归(来自Kaggle)"></a>逻辑回归(来自Kaggle)</h2><ul>
+<li>有一份医疗数据，包含各种和健康指标，以及最后一项他是否有心脏疾病。本文将数据分为两组，一组建立逻辑回归模型，另外一组用来作为测试组。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line"><span class="comment"># 读取数据，展示前五行</span></div><div class="line">data = pd.read_csv(<span class="string">'D:\zxc_E\Python-Project\DataAna\kaggle\heartDisease\heart.csv'</span>)</div><div class="line">data.head()</div></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>age</th><br>      <th>sex</th><br>      <th>cp</th><br>      <th>trestbps</th><br>      <th>chol</th><br>      <th>fbs</th><br>      <th>restecg</th><br>      <th>thalach</th><br>      <th>exang</th><br>      <th>oldpeak</th><br>      <th>slope</th><br>      <th>ca</th><br>      <th>thal</th><br>      <th>target</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>63</td><br>      <td>1</td><br>      <td>3</td><br>      <td>145</td><br>      <td>233</td><br>      <td>1</td><br>      <td>0</td><br>      <td>150</td><br>      <td>0</td><br>      <td>2.3</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>37</td><br>      <td>1</td><br>      <td>2</td><br>      <td>130</td><br>      <td>250</td><br>      <td>0</td><br>      <td>1</td><br>      <td>187</td><br>      <td>0</td><br>      <td>3.5</td><br>      <td>0</td><br>      <td>0</td><br>      <td>2</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>41</td><br>      <td>0</td><br>      <td>1</td><br>      <td>130</td><br>      <td>204</td><br>      <td>0</td><br>      <td>0</td><br>      <td>172</td><br>      <td>0</td><br>      <td>1.4</td><br>      <td>2</td><br>      <td>0</td><br>      <td>2</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>56</td><br>      <td>1</td><br>      <td>1</td><br>      <td>120</td><br>      <td>236</td><br>      <td>0</td><br>      <td>1</td><br>      <td>178</td><br>      <td>0</td><br>      <td>0.8</td><br>      <td>2</td><br>      <td>0</td><br>      <td>2</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>57</td><br>      <td>0</td><br>      <td>0</td><br>      <td>120</td><br>      <td>354</td><br>      <td>0</td><br>      <td>1</td><br>      <td>163</td><br>      <td>1</td><br>      <td>0.6</td><br>      <td>2</td><br>      <td>0</td><br>      <td>2</td><br>      <td>1</td><br>    </tr><br>  </tbody><br></table><br></div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看数据规模</span></div><div class="line">data.shape</div></pre></td></tr></table></figure>
+<pre><code>(303, 14)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看总体数据的大概描述，包括总和，均值等</span></div><div class="line">data.describe()</div></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>age</th><br>      <th>sex</th><br>      <th>cp</th><br>      <th>trestbps</th><br>      <th>chol</th><br>      <th>fbs</th><br>      <th>restecg</th><br>      <th>thalach</th><br>      <th>exang</th><br>      <th>oldpeak</th><br>      <th>slope</th><br>      <th>ca</th><br>      <th>thal</th><br>      <th>target</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>count</th><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>      <td>303.000000</td><br>    </tr><br>    <tr><br>      <th>mean</th><br>      <td>54.366337</td><br>      <td>0.683168</td><br>      <td>0.966997</td><br>      <td>131.623762</td><br>      <td>246.264026</td><br>      <td>0.148515</td><br>      <td>0.528053</td><br>      <td>149.646865</td><br>      <td>0.326733</td><br>      <td>1.039604</td><br>      <td>1.399340</td><br>      <td>0.729373</td><br>      <td>2.313531</td><br>      <td>0.544554</td><br>    </tr><br>    <tr><br>      <th>std</th><br>      <td>9.082101</td><br>      <td>0.466011</td><br>      <td>1.032052</td><br>      <td>17.538143</td><br>      <td>51.830751</td><br>      <td>0.356198</td><br>      <td>0.525860</td><br>      <td>22.905161</td><br>      <td>0.469794</td><br>      <td>1.161075</td><br>      <td>0.616226</td><br>      <td>1.022606</td><br>      <td>0.612277</td><br>      <td>0.498835</td><br>    </tr><br>    <tr><br>      <th>min</th><br>      <td>29.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>94.000000</td><br>      <td>126.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>71.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>    </tr><br>    <tr><br>      <th>25%</th><br>      <td>47.500000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>120.000000</td><br>      <td>211.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>133.500000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>1.000000</td><br>      <td>0.000000</td><br>      <td>2.000000</td><br>      <td>0.000000</td><br>    </tr><br>    <tr><br>      <th>50%</th><br>      <td>55.000000</td><br>      <td>1.000000</td><br>      <td>1.000000</td><br>      <td>130.000000</td><br>      <td>240.000000</td><br>      <td>0.000000</td><br>      <td>1.000000</td><br>      <td>153.000000</td><br>      <td>0.000000</td><br>      <td>0.800000</td><br>      <td>1.000000</td><br>      <td>0.000000</td><br>      <td>2.000000</td><br>      <td>1.000000</td><br>    </tr><br>    <tr><br>      <th>75%</th><br>      <td>61.000000</td><br>      <td>1.000000</td><br>      <td>2.000000</td><br>      <td>140.000000</td><br>      <td>274.500000</td><br>      <td>0.000000</td><br>      <td>1.000000</td><br>      <td>166.000000</td><br>      <td>1.000000</td><br>      <td>1.600000</td><br>      <td>2.000000</td><br>      <td>1.000000</td><br>      <td>3.000000</td><br>      <td>1.000000</td><br>    </tr><br>    <tr><br>      <th>max</th><br>      <td>77.000000</td><br>      <td>1.000000</td><br>      <td>3.000000</td><br>      <td>200.000000</td><br>      <td>564.000000</td><br>      <td>1.000000</td><br>      <td>2.000000</td><br>      <td>202.000000</td><br>      <td>1.000000</td><br>      <td>6.200000</td><br>      <td>2.000000</td><br>      <td>4.000000</td><br>      <td>3.000000</td><br>      <td>1.000000</td><br>    </tr><br>  </tbody><br></table><br></div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data.isnull().any()</div></pre></td></tr></table></figure>
+<pre><code>age         False
+sex         False
+cp          False
+trestbps    False
+chol        False
+fbs         False
+restecg     False
+thalach     False
+exang       False
+oldpeak     False
+slope       False
+ca          False
+thal        False
+target      False
+dtype: bool
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看数据的信息，主要是存储类型</span></div><div class="line">data.info()</div></pre></td></tr></table></figure>
+<pre><code>&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+RangeIndex: 303 entries, 0 to 302
+Data columns (total 14 columns):
+age         303 non-null int64
+sex         303 non-null int64
+cp          303 non-null int64
+trestbps    303 non-null int64
+chol        303 non-null int64
+fbs         303 non-null int64
+restecg     303 non-null int64
+thalach     303 non-null int64
+exang       303 non-null int64
+oldpeak     303 non-null float64
+slope       303 non-null int64
+ca          303 non-null int64
+thal        303 non-null int64
+target      303 non-null int64
+dtypes: float64(1), int64(13)
+memory usage: 33.2 KB
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导入数据可视化库Seaborn</span></div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看心脏病人数</span></div><div class="line">sns.countplot(x = <span class="string">'target'</span>, data = data)</div></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x217ee040ef0&gt;
+</code></pre><p><img src="/2019/05/13/heartDisease/output_7_1.png" alt=""> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看男女比例</span></div><div class="line">sns.countplot(x = <span class="string">'sex'</span>, data = data, palette=<span class="string">'colorblind'</span>)</div></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x217ef06aa90&gt;
+</code></pre><p><img src="/2019/05/13/heartDisease/output_8_1.png" alt=""> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> plt</div><div class="line"></div><div class="line"><span class="comment"># 查看所有数据项之间的相关性，颜色越深相关性越强</span></div><div class="line">fig, ax = plt.pyplot.subplots(figsize = (<span class="number">11</span>, <span class="number">8</span>))</div><div class="line">sns.heatmap(data.corr(), annot=<span class="keyword">True</span>, cmap = <span class="string">'Blues'</span>, ax=ax)</div><div class="line">plt.pyplot.show()</div></pre></td></tr></table></figure>
+<p><img src="/2019/05/13/heartDisease/output_9_0.png" alt=""> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将categorical variables 变为 dummy variables</span></div><div class="line">a = pd.get_dummies(data[<span class="string">"cp"</span>], prefix = <span class="string">'cp'</span>)</div><div class="line">b = pd.get_dummies(data[<span class="string">"restecg"</span>], prefix = <span class="string">'restecg'</span>)</div><div class="line">c = pd.get_dummies(data[<span class="string">"ca"</span>], prefix = <span class="string">'ca'</span>)</div><div class="line">d = pd.get_dummies(data[<span class="string">"thal"</span>], prefix = <span class="string">'thal'</span>)</div><div class="line">e = pd.get_dummies(data[<span class="string">"slope"</span>], prefix = <span class="string">'slope'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将上一步产生的哑变量加入数据集</span></div><div class="line">data = pd.concat([data,a,b,c,d,e], axis = <span class="number">1</span>)</div><div class="line">data.head()</div></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>age</th><br>      <th>sex</th><br>      <th>cp</th><br>      <th>trestbps</th><br>      <th>chol</th><br>      <th>fbs</th><br>      <th>restecg</th><br>      <th>thalach</th><br>      <th>exang</th><br>      <th>oldpeak</th><br>      <th>…</th><br>      <th>ca_2</th><br>      <th>ca_3</th><br>      <th>ca_4</th><br>      <th>thal_0</th><br>      <th>thal_1</th><br>      <th>thal_2</th><br>      <th>thal_3</th><br>      <th>slope_0</th><br>      <th>slope_1</th><br>      <th>slope_2</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>63</td><br>      <td>1</td><br>      <td>3</td><br>      <td>145</td><br>      <td>233</td><br>      <td>1</td><br>      <td>0</td><br>      <td>150</td><br>      <td>0</td><br>      <td>2.3</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>37</td><br>      <td>1</td><br>      <td>2</td><br>      <td>130</td><br>      <td>250</td><br>      <td>0</td><br>      <td>1</td><br>      <td>187</td><br>      <td>0</td><br>      <td>3.5</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>41</td><br>      <td>0</td><br>      <td>1</td><br>      <td>130</td><br>      <td>204</td><br>      <td>0</td><br>      <td>0</td><br>      <td>172</td><br>      <td>0</td><br>      <td>1.4</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>56</td><br>      <td>1</td><br>      <td>1</td><br>      <td>120</td><br>      <td>236</td><br>      <td>0</td><br>      <td>1</td><br>      <td>178</td><br>      <td>0</td><br>      <td>0.8</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>57</td><br>      <td>0</td><br>      <td>0</td><br>      <td>120</td><br>      <td>354</td><br>      <td>0</td><br>      <td>1</td><br>      <td>163</td><br>      <td>1</td><br>      <td>0.6</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>  </tbody><br></table><br><p>5 rows × 33 columns</p><br></div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将原始的变量删去</span></div><div class="line">data = data.drop(columns=[<span class="string">'cp'</span>, <span class="string">'restecg'</span>, <span class="string">'thal'</span>,<span class="string">'ca'</span>,<span class="string">'slope'</span>])</div><div class="line">data.head()</div></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>age</th><br>      <th>sex</th><br>      <th>trestbps</th><br>      <th>chol</th><br>      <th>fbs</th><br>      <th>thalach</th><br>      <th>exang</th><br>      <th>oldpeak</th><br>      <th>target</th><br>      <th>cp_0</th><br>      <th>…</th><br>      <th>ca_2</th><br>      <th>ca_3</th><br>      <th>ca_4</th><br>      <th>thal_0</th><br>      <th>thal_1</th><br>      <th>thal_2</th><br>      <th>thal_3</th><br>      <th>slope_0</th><br>      <th>slope_1</th><br>      <th>slope_2</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>63</td><br>      <td>1</td><br>      <td>145</td><br>      <td>233</td><br>      <td>1</td><br>      <td>150</td><br>      <td>0</td><br>      <td>2.3</td><br>      <td>1</td><br>      <td>0</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>37</td><br>      <td>1</td><br>      <td>130</td><br>      <td>250</td><br>      <td>0</td><br>      <td>187</td><br>      <td>0</td><br>      <td>3.5</td><br>      <td>1</td><br>      <td>0</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>41</td><br>      <td>0</td><br>      <td>130</td><br>      <td>204</td><br>      <td>0</td><br>      <td>172</td><br>      <td>0</td><br>      <td>1.4</td><br>      <td>1</td><br>      <td>0</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>56</td><br>      <td>1</td><br>      <td>120</td><br>      <td>236</td><br>      <td>0</td><br>      <td>178</td><br>      <td>0</td><br>      <td>0.8</td><br>      <td>1</td><br>      <td>0</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>57</td><br>      <td>0</td><br>      <td>120</td><br>      <td>354</td><br>      <td>0</td><br>      <td>163</td><br>      <td>1</td><br>      <td>0.6</td><br>      <td>1</td><br>      <td>1</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>  </tbody><br></table><br><p>5 rows × 28 columns</p><br></div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将决策变量取出</span></div><div class="line">x = data.drop(<span class="string">'target'</span>, axis = <span class="number">1</span>)</div><div class="line">x.head()</div></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>age</th><br>      <th>sex</th><br>      <th>trestbps</th><br>      <th>chol</th><br>      <th>fbs</th><br>      <th>thalach</th><br>      <th>exang</th><br>      <th>oldpeak</th><br>      <th>cp_0</th><br>      <th>cp_1</th><br>      <th>…</th><br>      <th>ca_2</th><br>      <th>ca_3</th><br>      <th>ca_4</th><br>      <th>thal_0</th><br>      <th>thal_1</th><br>      <th>thal_2</th><br>      <th>thal_3</th><br>      <th>slope_0</th><br>      <th>slope_1</th><br>      <th>slope_2</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>63</td><br>      <td>1</td><br>      <td>145</td><br>      <td>233</td><br>      <td>1</td><br>      <td>150</td><br>      <td>0</td><br>      <td>2.3</td><br>      <td>0</td><br>      <td>0</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>37</td><br>      <td>1</td><br>      <td>130</td><br>      <td>250</td><br>      <td>0</td><br>      <td>187</td><br>      <td>0</td><br>      <td>3.5</td><br>      <td>0</td><br>      <td>0</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>41</td><br>      <td>0</td><br>      <td>130</td><br>      <td>204</td><br>      <td>0</td><br>      <td>172</td><br>      <td>0</td><br>      <td>1.4</td><br>      <td>0</td><br>      <td>1</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>56</td><br>      <td>1</td><br>      <td>120</td><br>      <td>236</td><br>      <td>0</td><br>      <td>178</td><br>      <td>0</td><br>      <td>0.8</td><br>      <td>0</td><br>      <td>1</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>57</td><br>      <td>0</td><br>      <td>120</td><br>      <td>354</td><br>      <td>0</td><br>      <td>163</td><br>      <td>1</td><br>      <td>0.6</td><br>      <td>1</td><br>      <td>0</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>    </tr><br>  </tbody><br></table><br><p>5 rows × 27 columns</p><br></div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">y = data[<span class="string">'target'</span>]</div><div class="line">y.head()</div></pre></td></tr></table></figure>
+<pre><code>0    1
+1    1
+2    1
+3    1
+4    1
+Name: target, dtype: int64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将数据随机的分为测试组和结果组</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div><div class="line">x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=<span class="number">0.2</span>,random_state=<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 产生一个我们要用的分类器</span></div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</div><div class="line">classifier = LogisticRegression(solver = <span class="string">'liblinear'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 放入训练数据</span></div><div class="line">classifier.fit(x_train, y_train)</div><div class="line"></div><div class="line"><span class="comment"># 测试训练器classifier的训练结果</span></div><div class="line">y_pred = classifier.predict(x_test)</div><div class="line"></div><div class="line"><span class="comment"># 产生测试结果,和用模型生成的结果的混肴矩阵</span></div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> confusion_matrix</div><div class="line">cm = confusion_matrix(y_test, y_pred)</div><div class="line">cm</div></pre></td></tr></table></figure>
+<pre><code>array([[23,  4],
+       [ 3, 31]], dtype=int64)
+</code></pre><p>上面的结果显示</p>
+<ul>
+<li>有23个1类的被正确的预测到了1类，有4个本来是1类的被分到了4类</li>
+<li>有3个本来是1类的被分到了2类，有31个属于2类的被正确归类</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将上述的混淆矩阵转化为标准的DataFrame格式，然后作图展示</span></div><div class="line">sns.heatmap(pd.DataFrame(cm), annot=<span class="keyword">True</span>, cmap=<span class="string">'Reds'</span>)</div><div class="line">plt.pyplot.show()</div></pre></td></tr></table></figure>
+<p><img src="/2019/05/13/heartDisease/output_19_0.png" alt=""> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 输出正确率，精确率，和召回率</span></div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> precision_score</div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> recall_score</div><div class="line"></div><div class="line">print(<span class="string">"Accuracy = "</span>,accuracy_score(y_test,y_pred)*<span class="number">100</span>,<span class="string">"%"</span>)</div><div class="line">print(<span class="string">"Precision = "</span>,precision_score(y_test,y_pred)*<span class="number">100</span>,<span class="string">"%"</span>)</div><div class="line">print(<span class="string">"Recall Score = "</span>,recall_score(y_test,y_pred)*<span class="number">100</span>,<span class="string">"%"</span>)</div></pre></td></tr></table></figure>
+<pre><code>Accuracy =  88.52459016393442 %
+Precision =  88.57142857142857 %
+Recall Score =  91.17647058823529 %
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 计算敏感度和特异度</span></div><div class="line"><span class="comment"># 敏感度高代表漏诊率低</span></div><div class="line"><span class="comment"># 特异度高代表误诊率低</span></div><div class="line"></div><div class="line">sensitivity = cm[<span class="number">1</span>,<span class="number">1</span>]/(cm[<span class="number">1</span>,<span class="number">1</span>] + cm[<span class="number">1</span>,<span class="number">0</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"Sensitivity ="</span>,sensitivity)</div><div class="line">specificity= cm[<span class="number">0</span>,<span class="number">0</span>]/(cm[<span class="number">0</span>,<span class="number">0</span>] + cm[<span class="number">0</span>,<span class="number">1</span>])</div><div class="line">print(<span class="string">"Specificity ="</span>,specificity)</div></pre></td></tr></table></figure>
+<pre><code>Sensitivity = 0.9117647058823529
+Specificity = 0.8518518518518519
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 计算AUC得分，绘制AUC曲线</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_auc_score, roc_curve</div><div class="line">auc=roc_auc_score(y_test,y_pred)</div><div class="line">auc</div></pre></td></tr></table></figure>
+<pre><code>0.8818082788671023
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fpr,tpr,thresholds= roc_curve(y_test,y_pred)</div><div class="line">plt.pyplot.plot([<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>],linestyle=<span class="string">"--"</span>)</div><div class="line">plt.pyplot.plot(fpr,tpr,marker=<span class="string">"."</span>)</div><div class="line">plt.pyplot.xlabel(<span class="string">"False Positive Rate"</span>)</div><div class="line">plt.pyplot.ylabel(<span class="string">"TruePositive Rate"</span>)</div><div class="line">plt.pyplot.title(<span class="string">"ROC Curve"</span>)</div><div class="line">plt.pyplot.show()</div></pre></td></tr></table></figure>
+<p><img src="/2019/05/13/heartDisease/output_23_0.png" alt=""> </p>
+<p>用逻辑回归的的效果还是不错的</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/Kaggle/" rel="tag"># Kaggle</a>
+          
+            <a href="/tags/DataScience/" rel="tag"># DataScience</a>
+          
+            <a href="/tags/Logistics-Regression/" rel="tag"># Logistics Regression</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/07/BackTracking/" rel="next" title="leetcode-BackTracking算法例题">
+                <i class="fa fa-chevron-left"></i> leetcode-BackTracking算法例题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zxc</p>
+              <p class="site-description motion-element" itemprop="description">春服既成 凤兮舞雩</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/cprocc" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归-来自Kaggle"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归(来自Kaggle)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">2.</span> <span class="nav-text">Logistic Regression</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-cprocc-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://cprocc.github.io/2019/05/13/heartDisease/';
+          this.page.identifier = '2019/05/13/heartDisease/';
+          this.page.title = 'hexo+github搭建博客';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-cprocc-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
